@@ -14,3 +14,5 @@ I'm super passionate and interested in all things deep, including but not limite
 
 Here you will find some of projects/mock ups, please enjoy! 
 
+
+[FlexBox Exercise](lib/index.html)
