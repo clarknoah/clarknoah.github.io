@@ -15,4 +15,6 @@ I'm super passionate and interested in all things deep, including but not limite
 Here you will find some of projects/mock ups, please enjoy! 
 
 
-[FlexBox Exercise](lib/index.html)
+[FlexBox Exercise](lib/index.html) 
+
+[Week 1 Project](week1-responsive-html/index.html)
