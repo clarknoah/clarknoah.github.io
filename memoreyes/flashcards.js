@@ -51,7 +51,7 @@ let hildiDeck = [
     `What is Hildi's least favorite thing?`,
     `Cones`,
     null,
-    `cones.jpg`
+    `img/cone.jpg`
   ],
   [
     `What face did Hildi make when she was caught chewing up the Ottoman?`,
