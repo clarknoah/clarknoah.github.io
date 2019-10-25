@@ -496,5 +496,5 @@ let card2  = new Deck("Test Deck - asdfgasdf").createRandomCards(14);
 memoreyes.addDeck(card1);
 memoreyes.addDeck(card2);
 
-//memoreyes.selectDeck(0);
+memoreyes.selectDeck(0);
 memoreyes.domPopulateDecksInNavBar();
