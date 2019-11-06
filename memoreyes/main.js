@@ -1,14 +1,3 @@
-// Variable Declarations
-
-
-
-
-
-
-// Event Listener Declarations
-
-
-
 // Class Declarations
 class Flashcard {
   constructor(front,back, imgPathFront = null, imgPathBack=null){
@@ -98,14 +87,6 @@ class Flashcard {
     return this.ele;
   }
 }
-
-
-class JavascriptFlashcard extends Flashcard{
-  constructor(){
-    super();
-  }
-}
-
 
 
 class Deck {
