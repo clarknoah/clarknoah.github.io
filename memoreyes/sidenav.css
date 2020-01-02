@@ -1,0 +1,41 @@
+.sidenav {
+  width: 40%;
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  overflow: scroll;
+}
+
+.sidenav-hide {
+  padding: 0;
+  width: 0px;
+  margin:0;
+  border: none;
+  transition: all 0.5s ease;
+  overflow-x: hidden;
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin: 20px;
+}
+
+.menu-icon:hover{
+  transform: scale(1.5);
+  transition: all 0.1s ease;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+
+@media only screen and (max-device-width: 700px) {
+  .material-icons.md-48 {
+    font-size: 90px;
+  }
+}
