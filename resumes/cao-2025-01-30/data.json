@@ -1,0 +1,177 @@
+{
+  "candidate": {
+    "name": "Noah Clark",
+    "title": "Senior Full-Stack Engineer & Engineering Manager",
+    "contact": {
+      "phone": "+1 412-557-3368",
+      "email": "noah@intelligent-learning.tech",
+      "location": "Annandale, VA, USA",
+      "website": "clarknoah.github.io"
+    },
+    "summary": "Full-stack senior engineer with a unique passion for building elegant data models designed for maximum knowledge yield. Experience working on SaaS products, creating scalable, maintainable, and performant solutions. Team player and team leader focused on helping others succeed. Currently focused on applying a decade of engineering experience to the domain of phenomenology science.",
+    "skills": {
+      "personal": [
+        "Creative spirit",
+        "Excellent communicator/speaker",
+        "Highly self motivated",
+        "Reliable and professional",
+        "Organized",
+        "Time management",
+        "Team player",
+        "Fast learner",
+        "True love for writing software"
+      ],
+      "professional": {
+        "languages": ["JavaScript", "Python", "PHP", "Typescript"],
+        "databases": ["MongoDB", "Postgres", "SQLite", "Neo4j", "ClickHouse", "MySQL"],
+        "dev_technologies": [
+          "REST", "React", "Cypress", "CSS", "Django", "Enzyme", "Jest", "Storybook",
+          "ORM", "tailwind", "GraphQL", "AWS", "GCP", "OpenAPI", "Kubernetes", "GKE",
+          "NX", "AsyncAPI", "ClaudeCode"
+        ],
+        "other": ["AGILE", "E2E Testing", "DevOps", "Test Automation", "SCRUM"]
+      }
+    },
+    "work_experience": [
+      {
+        "role": "Backend Team Lead",
+        "company": "Quatt",
+        "period": "Nov 2024 - Present",
+        "description": "Led a team of engineers in developing and maintaining a robust, scalable backend infrastructure for a complex IoT ecosystem that integrates device management, data processing, and API interactions. Responsibilities included architectural design, technical leadership, driving internationalization efforts, and ensuring the stability and performance of Quatt's cloud platform.",
+        "tasks": [
+          "Internationalizing our product installation pipeline",
+          "Optimized latency issues in our stream data processing message queue",
+          "Manage and optimize high bandwidth steaming data pipelines"
+        ],
+        "tech_stack": ["MySQL", "Clickhouse", "Redis", "Heroku", "AWS IoT Core", "AWS SQS", "BullMQ", "Sentry", "OpenAPI", "Express", "Jest", "Github Actions", "ClaudeCode", "MQTT", "Grafana"]
+      },
+      {
+        "role": "Founder",
+        "company": "iAm",
+        "period": "Sept 2023 - Present",
+        "website": "https://iAmExplor.ing",
+        "description": "Sole founder of iAm, a SaaS platform enabling the measurement and analysis of subjective experiences in real-time. Led the project from concept to reality, aspiring to advance the study of human experience.",
+        "tasks": [
+          "Designed highly flexible graph based data framework compatible with Neo4j and SQLite",
+          "Independently developed Live Experience Reporting, a methodology for measuring dimensions of subjective experience in real-time",
+          "Single handedly designed, developed, and deployed SaaS Platform iAm, which allows users to conduct Live Experience reporting for the purposes of self knowledge, researcher, and meditation",
+          "Designed cross-platform implementation of iAm using Capacitor for Android and iOS (currently in beta testing)",
+          "Developed scalable platform utilizing GKE Kubernetes",
+          "Integrated LLM technologies such as Gemini with iAm's structured data to data exploration"
+        ],
+        "tech_stack": ["Neo4j", "Typescript", "Node", "Apollo Server", "GraphQL", "React", "AWS S3", "Github", "Google Analytics", "Capacitor", "Google Cloud (GCP)", "GKE (Kubernetes)"]
+      },
+      {
+        "role": "Engineering Manager / Senior Full-Stack Engineer",
+        "company": "Strategic Education Inc.",
+        "period": "May 2021 - September 2023",
+        "website": "https://workforceedge.com",
+        "description": "Served as Engineering Manager with a focus on senior full-stack and tech lead responsibilities for a SaaS EdTech startup.",
+        "tasks": [
+          "Acted as the subject matter expert for the entire platform architecture and technology stack",
+          "Managed four software engineers and three QA specialists",
+          "Led engineering team to design, develop, and deploy scalable solutions that met feature requirements and maintained overall platform health",
+          "Managed deployment processes and designed CI/CD pipelines for streamlined development cycles",
+          "Established and maintained DevOps pipeline, git workflow standards, and code review protocols",
+          "Successfully scaled the platform from a few hundred users and two clients to over 1.2 million users with 59 corporate partners"
+        ],
+        "tech_stack": ["TypeScript", "Node.js", "Express", "Prisma", "MySQL", "ClickHouse", "Redis", "MQTT", "AWS IoT Core", "AWS SQS", "AWS S3", "AWS IAM", "BullMQ", "Heroku", "Kafka", "OpenAPI", "AsyncAPI", "Sentry", "Axiom", "Grafana", "HubSpot", "Jira", "Claude Code", "MCP Protocol", "GitHub Copilot", "GitHub Actions", "Jest", "NX Monorepo", "React"]
+      },
+      {
+        "role": "Full-Stack Engineer/Data Manager",
+        "company": "Near Death Experience Research Foundation (NDERF)",
+        "period": "Jan 2020 - May 2021",
+        "tasks": [
+          "Designed prototype system architecture for modernized NDERF application and collection workflow",
+          "Designed and developed prototype API platform for NDERF's data"
+        ],
+        "tech_stack": ["git", "kanban", "node.js", "Heroku", "automated deployment", "continuous delivery", "PostgreSQL", "React", "Express", "Jest"]
+      },
+      {
+        "role": "Instructor Team Lead / Full-Stack Engineer",
+        "company": "General Assembly",
+        "period": "Jan 2020 - Dec 2020",
+        "tasks": [
+          "Taught and updated 500 Hour full-stack software engineering immersive course",
+          "Designed and developed an automated grading application in Node.js for DC Campus",
+          "Designed and engineered a full-stack learning platform using spaced repetition and hierarchical knowledge graph data structure"
+        ],
+        "tech_stack": ["Git", "HTML", "CSS", "JS", "Python", "React", "Mongo", "Mongoose", "PostgreSQL", "Storybook", "Django", "Jest", "NodeJS", "Express", "Heroku", "Neo4j", "Netlify"]
+      },
+      {
+        "role": "Geospatial Analyst / Software Engineer",
+        "company": "Thermopylae Sciences and Technology",
+        "period": "Nov 2018 - Jan 2020",
+        "tasks": [
+          "Supported data collection of commercial imagery data",
+          "Optimized collection pipeline using node.js to automate compression/decompression of imagery assets, saving 400 hours of manual labor"
+        ]
+      },
+      {
+        "role": "Software Developer",
+        "company": "Carnegie Mellon",
+        "period": "May 2016 - May 2017",
+        "tasks": [
+          "Worked with the Principal Investigator at a neuroscience research laboratory using MATLAB",
+          "Developed an automated pipeline by which fMRI data could be normalized and analyzed using MATLAB",
+          "Designed and developed a full-stack psychology research platform for subjective experience"
+        ],
+        "tech_stack": ["MATLAB", "Neo4j", "TypeScript", "React", "Angular", "Google Cloud", "Express", "Docker"]
+      },
+      {
+        "role": "Senior Systems Architect / Senior Software Engineer",
+        "company": "DMI / Thermopylae Sciences and Technology",
+        "period": "May 2013 - Aug 2015",
+        "tasks": [
+          "Developed strategy and execution plan for helping the Defense Intelligence Agency (DIA) consolidate their $1.1 billion IT infrastructure",
+          "Served as the software architect and lead software engineer for the DIA's IT asset management system",
+          "Used scrum and agile methodologies"
+        ],
+        "tech_stack": ["OpenStack", "Angular", "PHP", "d3.js", "Neo4j", "cytoscape.js", "git"]
+      },
+      {
+        "role": "Technology Consultant",
+        "company": "Questor Federal",
+        "period": "Jul 2011 - May 2013",
+        "tasks": [
+          "Focused on consolidation and reduction of duplicative efforts within the United States Intelligence Community (IC)",
+          "Worked with senior level leadership to develop roadmaps to reduce IT footprint IC wide"
+        ]
+      },
+      {
+        "role": "Intelligence Analyst / Physical Security Penetration Tester",
+        "company": "United States Air Force",
+        "period": "Sep 2007 - Jul 2011",
+        "tasks": [
+          "Cyber intelligence analyst and physical security penetration tester responsible for testing the US Air Force's security posture",
+          "Briefing military personnel on cyber security threats"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "JavaScript Algorithms and Data Structures Masterclass",
+        "institution": "Udemy",
+        "date": "Jan 2021"
+      },
+      {
+        "degree": "Software Engineering Immersive",
+        "institution": "General Assembly",
+        "date": "Sep 2020 - Dec 2020",
+        "details": "500 Hour coding bootcamp"
+      },
+      {
+        "degree": "Bachelor's of Science in Computer Science (Cum Laude)",
+        "institution": "Trident University International",
+        "date": "Feb 2009 - Dec 2012"
+      }
+    ],
+    "interests": [
+      "Meditating",
+      "Reading",
+      "Traveling",
+      "Consciousness",
+      "Software Projects"
+    ]
+  }
+}

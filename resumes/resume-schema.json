@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Professional Resume Schema",
+  "type": "object",
+  "properties": {
+    "candidate": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "phone": { "type": "string" },
+            "email": { "type": "string" },
+            "location": { "type": "string" },
+            "website": { "type": "string" }
+          }
+        },
+        "summary": { "type": "string" },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "personal": { "type": "array", "items": { "type": "string" } },
+            "professional": {
+              "type": "object",
+              "properties": {
+                "languages": { "type": "array", "items": { "type": "string" } },
+                "databases": { "type": "array", "items": { "type": "string" } },
+                "dev_technologies": { "type": "array", "items": { "type": "string" } },
+                "other": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "work_experience": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": { "type": "string" },
+              "company": { "type": "string" },
+              "period": { "type": "string" },
+              "description": { "type": "string" },
+              "tasks": { "type": "array", "items": { "type": "string" } },
+              "tech_stack": { "type": "array", "items": { "type": "string" } },
+              "website": { "type": "string" }
+            }
+          }
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "degree": { "type": "string" },
+              "institution": { "type": "string" },
+              "date": { "type": "string" },
+              "details": { "type": "string" }
+            }
+          }
+        },
+        "interests": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
