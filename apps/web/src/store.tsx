@@ -18,7 +18,10 @@ interface State {
 
 type Action = Intent | { type: 'closePanel' } | { type: 'syncView'; view: View }
 
-const pathToView = (path: string): View => (path.startsWith('/repo') ? 'repo' : 'portfolio')
+const pathToView = (path: string): View =>
+  path.startsWith('/repo') ? 'repo' : path.startsWith('/story') ? 'story' : 'portfolio'
+
+const viewToPath = (v: View): string => (v === 'repo' ? '/repo' : v === 'story' ? '/story' : '/')
 
 function reducer(s: State, a: Action): State {
   switch (a.type) {
@@ -50,7 +53,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const dispatch = useCallback((a: Action) => {
     if (a.type === 'setView') {
-      window.history.pushState({}, '', a.view === 'repo' ? '/repo' : '/')
+      window.history.pushState({}, '', viewToPath(a.view))
     }
     if (a.type === 'downloadResume') {
       window.open('/resume.pdf', '_blank')

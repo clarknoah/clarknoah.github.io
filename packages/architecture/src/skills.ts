@@ -1,6 +1,6 @@
 import { skill, type SkillCategory } from '@noahclark/schema'
 
-// [id, display name, category] — kept compact; skill() validates each.
+// [id, display name, category]. Kept compact; skill() validates each.
 const defs: Array<[string, string, SkillCategory]> = [
   // languages
   ['typescript', 'TypeScript', 'lang'],

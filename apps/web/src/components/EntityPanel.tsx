@@ -54,14 +54,14 @@ function Body({ kind, id }: { kind: string; id: string }) {
     return (
       <div className="mt-3 space-y-4">
         <div className="text-sm text-text-muted">
-          {org?.name} · {r.start} — {r.end === 'present' ? 'now' : r.end}
+          {org?.name} · {r.start}–{r.end === 'present' ? 'now' : r.end}
         </div>
         <p className="text-sm text-text-muted">{r.summary}</p>
         {r.highlights.length > 0 && (
           <ul className="space-y-1.5 text-sm text-text-muted">
             {r.highlights.map((h) => (
               <li key={h} className="flex gap-2">
-                <span className="text-accent">—</span>
+                <span className="text-accent">›</span>
                 {h}
               </li>
             ))}
@@ -146,6 +146,31 @@ function Body({ kind, id }: { kind: string; id: string }) {
             ))}
           </div>
         </div>
+      </div>
+    )
+  }
+
+  if (kind === 'org') {
+    const o = dataset.orgs.find((x) => x.id === id)
+    const heldRoles = dataset.roles.filter((r) => r.org === id)
+    return (
+      <div className="mt-3 space-y-3 text-sm text-text-muted">
+        <p className="font-mono text-xs text-text-faint">{o?.sector}</p>
+        {o?.url && (
+          <a href={o.url} target="_blank" rel="noreferrer" className="block font-mono text-sm text-accent hover:underline">
+            {o.url} ↗
+          </a>
+        )}
+        {heldRoles.map((r) => (
+          <button
+            key={r.id}
+            type="button"
+            onClick={() => dispatch({ type: 'openEntity', id: r.id })}
+            className="block text-left hover:text-accent"
+          >
+            {r.title}
+          </button>
+        ))}
       </div>
     )
   }

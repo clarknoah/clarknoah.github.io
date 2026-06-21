@@ -5,7 +5,7 @@ import { index, profile } from '../lib'
 import { useStore } from '../store'
 
 const ctx = { index, profile }
-const intro: Line[] = [{ text: `noah@${profile.domain} — type 'help'`, tone: 'muted' }]
+const intro: Line[] = [{ text: `noah@${profile.domain} · type 'help'`, tone: 'muted' }]
 
 const toneClass = (t?: Line['tone']) =>
   t === 'accent' ? 'text-accent' : t === 'error' ? 'text-danger' : t === 'muted' ? 'text-text-faint' : 'text-text-muted'

@@ -1,4 +1,4 @@
-/** Personal facts — single source for the hero and contact sections. */
+/** Personal facts: single source for the hero and contact sections. */
 export const profile = {
   name: 'Noah Clark',
   title: 'Agentic Systems Architect',

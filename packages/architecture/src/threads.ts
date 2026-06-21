@@ -1,7 +1,7 @@
 import { thread } from '@noahclark/schema'
 
 /**
- * Threads — curatorial. Each is an interpretation of how the career coheres, backed by
+ * Threads: curatorial. Each is an interpretation of how the career coheres, backed by
  * the roles/projects in `evidence`. Colours live in @noahclark/theme, keyed by id.
  */
 export const threads = [
@@ -9,7 +9,7 @@ export const threads = [
     id: 'graph',
     label: 'Knowledge Graphs',
     blurb:
-      'Building typed graph data models since 2013 — the same conviction from the DIA asset graph to Atlas.',
+      'Building typed graph data models since 2013. The same conviction runs from the DIA asset graph to Atlas.',
     evidence: ['dia-architect', 'dia-asset-mgmt', 'cmu-psych-platform', 'ga-learning-platform', 'iam', 'atlas'],
   }),
   thread({
@@ -30,7 +30,7 @@ export const threads = [
     id: 'scale',
     label: 'Scale & Engineering Leadership',
     blurb:
-      'Scaling products and leading teams — from a SaaS platform at 1.2M users to a 20,000-device IoT fleet.',
+      'Scaling products and leading teams, from a SaaS platform at 1.2M users to a 20,000-device IoT fleet.',
     evidence: ['sei', 'workforceedge', 'quatt'],
   }),
   thread({

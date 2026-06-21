@@ -38,7 +38,7 @@ export function RepoView() {
       <p className="text-xs uppercase tracking-[0.2em] text-accent">repo view</p>
       <h1 className="mt-2 font-display text-3xl font-semibold text-text">packages/architecture</h1>
       <p className="mt-3 max-w-2xl text-text-muted">
-        Every entry is a real, validated entity in the career graph — the same data the
+        Every entry is a real, validated entity in the career graph: the same data the
         portfolio renders, shown as the repo that produces it. Toggle{' '}
         <span className="text-accent">view source</span> to see the typed object.
       </p>
@@ -135,7 +135,7 @@ export function RepoView() {
         <div className="mt-4 space-y-1 text-xs text-text-muted">
           {relationships.map((r) => (
             <div key={r.verb}>
-              {(Array.isArray(r.from) ? r.from.join('|') : r.from)} —{r.verb}→ {r.to}
+              {(Array.isArray(r.from) ? r.from.join('|') : r.from)} {r.verb} → {r.to}
             </div>
           ))}
         </div>

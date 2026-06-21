@@ -1,7 +1,7 @@
 import { capability } from '@noahclark/schema'
 
 /**
- * Capabilities — curatorial, consulting-facing. Each is a present-tense competency with
+ * Capabilities: curatorial, consulting-facing. Each is a present-tense competency with
  * `evidence` pointing at the roles/projects that justify it (claims with receipts).
  */
 export const capabilities = [
@@ -25,7 +25,7 @@ export const capabilities = [
     id: 'realtime-telemetry',
     name: 'Real-time telemetry at scale',
     blurb:
-      'Telemetry pipelines for fleets of distributed devices — ingestion, processing, and live control.',
+      'Telemetry pipelines for fleets of distributed devices: ingestion, processing, and live control.',
     threads: ['scale'],
     evidence: ['quatt'],
   }),
@@ -40,7 +40,7 @@ export const capabilities = [
     id: 'platform-architecture',
     name: 'Platform & systems architecture',
     blurb:
-      'Architecting systems across hardware, software, and data boundaries — 18 years, up to $1.1B-scale infrastructure strategy.',
+      'Architecting systems across hardware, software, and data boundaries. 18 years, up to $1.1B-scale infrastructure strategy.',
     threads: ['intelligence', 'scale'],
     evidence: ['dia-architect', 'quatt', 'sei'],
   }),
@@ -48,7 +48,7 @@ export const capabilities = [
     id: 'research-platforms',
     name: 'Research data platforms',
     blurb:
-      'Building first-person and scientific measurement platforms — structured capture, real-time reporting, analysis.',
+      'Building first-person and scientific measurement platforms: structured capture, real-time reporting, analysis.',
     threads: ['consciousness', 'graph'],
     evidence: ['cmu-psych-platform', 'nderf-platform', 'iam'],
   }),

@@ -1,6 +1,7 @@
 import { cx } from '@noahclark/ui'
 import { profile } from '../lib'
 import { useStore } from '../store'
+import { ThemeToggle } from '../theme'
 
 export function Nav() {
   const { state, dispatch } = useStore()
@@ -25,14 +26,22 @@ export function Nav() {
           </button>
           <button
             type="button"
+            onClick={() => dispatch({ type: 'setView', view: 'story' })}
+            className={cx('rounded px-2 py-1', state.view === 'story' ? 'text-accent' : 'text-text-muted')}
+          >
+            story
+          </button>
+          <button
+            type="button"
             onClick={() => dispatch({ type: 'setView', view: 'repo' })}
             className={cx('rounded px-2 py-1', state.view === 'repo' ? 'text-accent' : 'text-text-muted')}
           >
             repo
           </button>
-          <span className="ml-3 hidden text-text-faint lg:inline">
+          <span className="mx-3 hidden text-text-faint lg:inline">
             press <kbd className="rounded border border-border px-1">`</kbd> for terminal
           </span>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

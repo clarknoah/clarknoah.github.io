@@ -25,7 +25,7 @@ export const projects = [
     name: 'Subjective-Experience Research Platform',
     role: 'cmu',
     summary:
-      'Full-stack platform for psychology research into subjective experience — the conceptual origin of iAm, built on a graph data model.',
+      'Full-stack platform for psychology research into subjective experience. The conceptual origin of iAm, built on a graph data model.',
     threads: ['consciousness', 'graph'],
     skills: ['neo4j', 'typescript', 'react', 'angular', 'gcp', 'docker'],
     capabilities: ['research-platforms', 'knowledge-graph-systems'],
@@ -92,7 +92,7 @@ export const projects = [
     name: 'Atlas',
     role: 'quatt',
     summary:
-      'A typed knowledge graph modelling an engineering organisation — 670 entities, 41 repos, 600+ device fields — with cross-language type generation, queryable by both engineers and AI agents.',
+      'A typed knowledge graph modelling an engineering organisation (670 entities, 41 repos, 600+ device fields) with cross-language type generation, queryable by both engineers and AI agents.',
     threads: ['graph', 'ai-native', 'scale'],
     skills: ['typescript', 'nx', 'neo4j', 'claude-code', 'mcp', 'openapi'],
     capabilities: ['knowledge-graph-systems', 'ai-native-tooling'],

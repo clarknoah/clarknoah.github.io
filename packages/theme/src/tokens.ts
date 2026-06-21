@@ -1,85 +1,124 @@
 /**
  * Canonical design tokens. Single source of truth for the whole site.
  *
- * - JS consumers (Cytoscape, Motion) import `tokens` directly.
- * - CSS consumers (Tailwind utilities, instant first paint) read `tokens.generated.css`,
- *   which `tools/gen-theme` derives from `cssVars` below. Edit values HERE only.
+ * Two palettes (light default, dark) keyed off `[data-theme]`. JS reads `tokens`;
+ * CSS/Tailwind read `tokens.generated.css`, derived by `tools/gen-theme`. Edit values HERE.
  *
- * Aesthetic: dark technical data-console. Deliberately not Inter + indigo.
+ * Direction: refined-technical, warm — not the dark+teal dev-template look. Amber accent,
+ * Hanken Grotesk + IBM Plex Mono (deliberately not the AI-default Inter/Space Grotesk).
  */
 
+export interface ColorPalette {
+  ink: string // page background
+  surface: string
+  surfaceRaised: string
+  border: string
+  borderStrong: string
+  text: string
+  textMuted: string
+  textFaint: string
+  accent: string
+  accentDim: string
+  danger: string
+}
+
+export const palettes: { light: ColorPalette; dark: ColorPalette } = {
+  light: {
+    ink: '#f6f3ec',
+    surface: '#fdfbf6',
+    surfaceRaised: '#f0eadd',
+    border: '#e4ddce',
+    borderStrong: '#d0c7b4',
+    text: '#211d17',
+    textMuted: '#6c6457',
+    textFaint: '#9b9285',
+    accent: '#ad6a14', // amber, dark enough for AA on warm ivory
+    accentDim: '#caa15e',
+    danger: '#b8432a',
+  },
+  dark: {
+    ink: '#15130f',
+    surface: '#1d1a14',
+    surfaceRaised: '#26221a',
+    border: '#312c22',
+    borderStrong: '#433d30',
+    text: '#ece5d7',
+    textMuted: '#a59c8b',
+    textFaint: '#6f685a',
+    accent: '#e0a23b',
+    accentDim: '#8a6a2e',
+    danger: '#e08a5c',
+  },
+}
+
+/** Thread hues — tuned to read on both palettes. Keys match ThreadId in @noahclark/schema. */
+export const thread = {
+  graph: '#2f7dc4',
+  consciousness: '#8157d6',
+  intelligence: '#c95f33',
+  scale: '#3a9663',
+  'ai-native': '#b5791f',
+} as const
+
+export const font = {
+  display: "'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif",
+  body: "'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif",
+  mono: "'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace",
+}
+
+export const space = { xs: '4px', sm: '8px', md: '16px', lg: '24px', xl: '40px', '2xl': '64px', '3xl': '96px' }
+export const radius = { sm: '4px', md: '8px', lg: '14px', full: '999px' }
+export const motion = {
+  fast: '160ms',
+  base: '280ms',
+  slow: '520ms',
+  settle: '900ms',
+  out: 'cubic-bezier(0.22, 1, 0.36, 1)',
+  inOut: 'cubic-bezier(0.65, 0, 0.35, 1)',
+  spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+}
+
+/** Default (light) tokens for any static JS use. Theme-reactive code should read CSS vars. */
 export const tokens = {
-  color: {
-    ink: '#0a0c10', // page background
-    surface: '#12151b',
-    surfaceRaised: '#181c24',
-    border: '#252b35',
-    borderStrong: '#323a47',
-    text: '#e7eaf0',
-    textMuted: '#9aa4b2',
-    textFaint: '#5f6977',
-    accent: '#4dd0c4', // teal signal — links, focus, terminal caret
-    accentDim: '#2f8079',
-    danger: '#f78c6c',
-  },
-  /** Per-thread hues. Keys match ThreadId in @noahclark/schema. */
-  thread: {
-    graph: '#5eb1ef',
-    consciousness: '#c792ea',
-    intelligence: '#f78c6c',
-    scale: '#7ee787',
-    'ai-native': '#f5b942',
-  },
-  font: {
-    display: "'Space Grotesk', ui-sans-serif, system-ui, sans-serif",
-    body: "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
-    mono: "'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace",
-  },
-  space: { xs: '4px', sm: '8px', md: '16px', lg: '24px', xl: '40px', '2xl': '64px', '3xl': '96px' },
-  radius: { sm: '4px', md: '8px', lg: '14px', full: '999px' },
-  motion: {
-    fast: '160ms',
-    base: '280ms',
-    slow: '520ms',
-    settle: '900ms',
-    // easings
-    out: 'cubic-bezier(0.22, 1, 0.36, 1)',
-    inOut: 'cubic-bezier(0.65, 0, 0.35, 1)',
-    spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-  },
+  color: palettes.light,
+  thread,
+  font,
+  space,
+  radius,
+  motion,
 } as const
 
 export type Tokens = typeof tokens
-export type ThreadColorKey = keyof typeof tokens.thread
+export type ThreadColorKey = keyof typeof thread
 
-/**
- * Tailwind v4 `@theme` variables, derived from `tokens`. Tailwind turns each
- * `--color-*` into utilities (`bg-ink`, `text-accent`, `text-thread-graph`, …) and
- * exposes them as real CSS custom properties for `var()` use.
- *
- * Consumed by `tools/gen-theme` to emit `tokens.generated.css`. Edit values in `tokens`.
- */
-export const themeVars: Record<string, string> = {
-  '--color-ink': tokens.color.ink,
-  '--color-surface': tokens.color.surface,
-  '--color-surface-raised': tokens.color.surfaceRaised,
-  '--color-border': tokens.color.border,
-  '--color-border-strong': tokens.color.borderStrong,
-  '--color-text': tokens.color.text,
-  '--color-text-muted': tokens.color.textMuted,
-  '--color-text-faint': tokens.color.textFaint,
-  '--color-accent': tokens.color.accent,
-  '--color-accent-dim': tokens.color.accentDim,
-  '--color-danger': tokens.color.danger,
-  '--color-thread-graph': tokens.thread.graph,
-  '--color-thread-consciousness': tokens.thread.consciousness,
-  '--color-thread-intelligence': tokens.thread.intelligence,
-  '--color-thread-scale': tokens.thread.scale,
-  '--color-thread-ai-native': tokens.thread['ai-native'],
-  '--font-display': tokens.font.display,
-  '--font-body': tokens.font.body,
-  '--font-mono': tokens.font.mono,
-  '--radius-sm': tokens.radius.sm,
-  '--radius-md': tokens.radius.md,
-  '--radius-lg': tokens.radius.lg,
+/** Build the colour half of the Tailwind `@theme` var map for a given palette. */
+export function colorVars(p: ColorPalette): Record<string, string> {
+  return {
+    '--color-ink': p.ink,
+    '--color-surface': p.surface,
+    '--color-surface-raised': p.surfaceRaised,
+    '--color-border': p.border,
+    '--color-border-strong': p.borderStrong,
+    '--color-text': p.text,
+    '--color-text-muted': p.textMuted,
+    '--color-text-faint': p.textFaint,
+    '--color-accent': p.accent,
+    '--color-accent-dim': p.accentDim,
+    '--color-danger': p.danger,
+  }
+}
+
+/** Theme-independent vars (threads, fonts, radii) — emitted once into `@theme`. */
+export const staticVars: Record<string, string> = {
+  '--color-thread-graph': thread.graph,
+  '--color-thread-consciousness': thread.consciousness,
+  '--color-thread-intelligence': thread.intelligence,
+  '--color-thread-scale': thread.scale,
+  '--color-thread-ai-native': thread['ai-native'],
+  '--font-display': font.display,
+  '--font-body': font.body,
+  '--font-mono': font.mono,
+  '--radius-sm': radius.sm,
+  '--radius-md': radius.md,
+  '--radius-lg': radius.lg,
 }

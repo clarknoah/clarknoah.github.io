@@ -23,13 +23,13 @@ export function Timeline() {
           >
             <span className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-ink bg-accent" />
             <div className="font-mono text-xs text-text-faint">
-              {yearOf(r.start)} — {r.end === 'present' ? 'now' : yearOf(r.end)}
+              {yearOf(r.start)}–{r.end === 'present' ? 'now' : yearOf(r.end)}
             </div>
             <button type="button" onClick={() => dispatch({ type: 'openEntity', id: r.id })} className="mt-1 block text-left">
               <h3 className="font-display text-lg font-semibold text-text hover:text-accent">{r.title}</h3>
               <div className="text-sm text-text-muted">
                 {org?.name}
-                {r.location ? ` · ${r.location}` : ''}
+                {r.location ? ` · ${r.location.label}` : ''}
               </div>
             </button>
             <p className="mt-2 max-w-2xl text-sm text-text-muted">{r.summary}</p>

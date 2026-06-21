@@ -69,5 +69,24 @@ export function validateDataset(d: Dataset): RefError[] {
   dupCheck('capability', d.capabilities)
   dupCheck('thread', d.threads)
 
+  // Ids must be globally unique across types (the graph and entity() assume it).
+  const seen = new Map<string, string>()
+  const groups: [string, { id: string }[]][] = [
+    ['org', d.orgs],
+    ['role', d.roles],
+    ['project', d.projects],
+    ['skill', d.skills],
+    ['capability', d.capabilities],
+    ['thread', d.threads],
+    ['education', d.education],
+  ]
+  for (const [type, items] of groups) {
+    for (const it of items) {
+      const prev = seen.get(it.id)
+      if (prev) errors.push({ entity: type, id: it.id, field: 'id', missing: `collides with ${prev}` })
+      else seen.set(it.id, type)
+    }
+  }
+
   return errors
 }

@@ -18,32 +18,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>Noah Clark — Agentic Systems Architect</title>
+    <script>
+      // Apply theme before paint to avoid a flash.
+      (function () {
+        try {
+          var p = localStorage.getItem('theme') || 'light'
+          var t = p === 'system'
+            ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+            : p
+          document.documentElement.dataset.theme = t
+        } catch (e) {}
+      })()
+    </script>
     <style>
-      /* Instant shell: a styled first paint before the bundle loads. */
-      html { background: #0a0c10; color: #e7eaf0; }
-      body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; }
+      /* Instant shell: a styled first paint before the bundle loads. Theme-aware. */
+      html { background: #f6f3ec; color: #211d17; }
+      html[data-theme='dark'] { background: #15130f; color: #ece5d7; }
+      body { margin: 0; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; }
       #boot {
         min-height: 100vh; display: flex; flex-direction: column;
         align-items: center; justify-content: center; gap: 0.75rem;
       }
-      #boot .nm {
-        font-family: 'Space Grotesk', system-ui, sans-serif;
-        font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 600; letter-spacing: -0.02em;
-      }
-      #boot .ti { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #4dd0c4; }
-      #boot .dot { width: 6px; height: 6px; border-radius: 99px; background: #4dd0c4; animation: p 1s ease-in-out infinite; }
-      @keyframes p { 0%,100% { opacity: 0.25 } 50% { opacity: 1 } }
+      #boot .nm { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; }
+      #boot .ti { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; letter-spacing: 0.15em; color: #ad6a14; }
+      html[data-theme='dark'] #boot .ti { color: #e0a23b; }
+      #boot .dot { width: 6px; height: 6px; border-radius: 99px; background: #ad6a14; animation: p 1s ease-in-out infinite; }
+      html[data-theme='dark'] #boot .dot { background: #e0a23b; }
+      @keyframes p { 0%, 100% { opacity: 0.25 } 50% { opacity: 1 } }
     </style>
   </head>
   <body>
     <div id="root">
       <div id="boot">
         <div class="nm">Noah Clark</div>
-        <div class="ti">agentic systems architect</div>
+        <div class="ti">AGENTIC SYSTEMS ARCHITECT</div>
         <div class="dot"></div>
       </div>
     </div>

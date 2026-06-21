@@ -20,6 +20,13 @@ const metric = z.object({
   context: z.string().optional(),
 })
 
+// Geographic point for the globe / map. label is human-readable (e.g. 'Amsterdam, NL').
+const location = z.object({
+  label: z.string(),
+  lat: z.number(),
+  lng: z.number(),
+})
+
 // --- factual entities (verifiable from the CV) ---
 
 export const orgSchema = z.object({
@@ -36,7 +43,7 @@ export const roleSchema = z.object({
   title: z.string(),
   start: z.string(), // 'YYYY-MM'
   end: z.string(), // 'YYYY-MM' | 'present'
-  location: z.string().optional(),
+  location: location.optional(),
   summary: z.string(),
   highlights: z.array(z.string()).default([]),
   metrics: z.array(metric).default([]),
@@ -114,6 +121,7 @@ export type Education = z.infer<typeof educationSchema>
 export type Capability = z.infer<typeof capabilitySchema>
 export type Thread = z.infer<typeof threadSchema>
 export type Metric = z.infer<typeof metric>
+export type Location = z.infer<typeof location>
 
 // --- constructors: validate on author, return the typed entity ---
 

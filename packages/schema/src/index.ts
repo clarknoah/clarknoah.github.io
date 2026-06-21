@@ -28,6 +28,7 @@ export type {
   Capability,
   Thread,
   Metric,
+  Location,
   EntityKind,
   ThreadId,
   RoleKind,

@@ -18,11 +18,11 @@ export const commands: Command[] = [
   },
   {
     name: 'view',
-    usage: 'view <portfolio|repo>',
+    usage: 'view <portfolio|story|repo>',
     describe: 'Switch the page view.',
     run: (args) => {
       const v = args[0]
-      if (v !== 'portfolio' && v !== 'repo') return err('usage: view <portfolio|repo>')
+      if (v !== 'portfolio' && v !== 'repo' && v !== 'story') return err('usage: view <portfolio|story|repo>')
       return ok([line(`→ ${v} view`, 'accent')], [{ type: 'setView', view: v }])
     },
   },
