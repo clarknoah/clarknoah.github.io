@@ -1,14 +1,30 @@
+import { yearOf } from '@noahclark/graph-engine'
 import type { Role } from '@noahclark/schema'
-import { parseMonth, yearOf } from '@noahclark/graph-engine'
-import { motion, useInView } from 'motion/react'
-import { useEffect, useRef, useState } from 'react'
-import { Globe } from '../components/Globe'
+import { AnimatePresence, motion, useInView } from 'motion/react'
+import { type ComponentType, useEffect, useRef, useState } from 'react'
 import { dataset } from '../lib'
+import { scenes, type VizKind } from '../story/scenes'
+import { GlobeViz } from '../story/viz/GlobeViz'
+import { GrowthViz } from '../story/viz/GrowthViz'
+import { RadarViz } from '../story/viz/RadarViz'
 
-// Oldest to newest: the journey, traced over time.
-const roles = [...dataset.roles].sort((a, b) => parseMonth(a.start) - parseMonth(b.start))
+type VizProps = { role: Role; active: boolean }
+// Implemented viz; graph/signal/swarm fall back to the globe until built.
+const VIZ: Record<VizKind, ComponentType<VizProps>> = {
+  radar: RadarViz as ComponentType<VizProps>,
+  growth: GrowthViz as ComponentType<VizProps>,
+  globe: GlobeViz,
+  graph: GlobeViz,
+  signal: GlobeViz,
+  swarm: GlobeViz,
+}
 
-function Scene({ role, idx, onActive }: { role: Role; idx: number; onActive: (i: number) => void }) {
+const roleById = new Map(dataset.roles.map((r) => [r.id, r]))
+const steps = scenes
+  .map((s) => ({ ...s, role: roleById.get(s.roleId) }))
+  .filter((s): s is { roleId: string; viz: VizKind; role: Role } => s.role !== undefined)
+
+function SceneText({ role, idx, onActive }: { role: Role; idx: number; onActive: (i: number) => void }) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { amount: 0.6 })
   useEffect(() => {
@@ -20,7 +36,7 @@ function Scene({ role, idx, onActive }: { role: Role; idx: number; onActive: (i:
     <section ref={ref} className="flex h-screen items-end justify-start px-6 pb-24 md:items-center md:pb-0">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.15, y: 24 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.12, y: 24 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-md rounded-lg border border-border bg-surface/85 p-6 backdrop-blur-sm"
       >
@@ -46,27 +62,40 @@ function Scene({ role, idx, onActive }: { role: Role; idx: number; onActive: (i:
 
 export function StoryView() {
   const [active, setActive] = useState(0)
-  const role = roles[active]
-  const target = role?.location ? { lat: role.location.lat, lng: role.location.lng } : null
+  const step = steps[active]
+  const Viz = step ? VIZ[step.viz] : GlobeViz
 
   return (
     <main className="relative">
       <div className="mx-auto max-w-6xl px-6 pt-10">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">the path</p>
         <h1 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-text md:text-4xl">
-          Eighteen years, traced across the map.
+          Eighteen years, told as data.
         </h1>
         <p className="mt-2 font-mono text-xs text-text-faint">scroll ↓</p>
       </div>
 
-      {/* Sticky globe; scenes scroll over it. */}
+      {/* Sticky stage; the active era's visualization crossfades in. */}
       <div className="pointer-events-none sticky top-0 z-0 flex h-screen items-center justify-center px-6">
-        <Globe target={target} />
+        <AnimatePresence mode="wait">
+          {step && (
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.4 }}
+              className="flex w-full max-w-[520px] items-center justify-center"
+            >
+              <Viz role={step.role} active />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <div className="relative z-10 -mt-[100vh] mx-auto max-w-6xl">
-        {roles.map((r, i) => (
-          <Scene key={r.id} role={r} idx={i} onActive={setActive} />
+        {steps.map((s, i) => (
+          <SceneText key={s.roleId} role={s.role} idx={i} onActive={setActive} />
         ))}
       </div>
     </main>
