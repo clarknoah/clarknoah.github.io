@@ -1,0 +1,11 @@
+{
+  "name": "graph-engine",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/graph-engine/src",
+  "projectType": "library",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p packages/graph-engine/tsconfig.json"
+    }
+  }
+}

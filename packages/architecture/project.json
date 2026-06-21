@@ -1,0 +1,11 @@
+{
+  "name": "architecture",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/architecture/src",
+  "projectType": "library",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p packages/architecture/tsconfig.json"
+    }
+  }
+}

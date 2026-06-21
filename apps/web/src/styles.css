@@ -1,0 +1,11 @@
+@import '@noahclark/theme/theme.css';
+
+/* Tailwind v4 auto-scans this app; explicitly include the workspace UI package so its
+   utility classes aren't purged. */
+@source "../../../packages/ui/src";
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+  }
+}

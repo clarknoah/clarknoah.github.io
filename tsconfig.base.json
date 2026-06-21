@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@noahclark/schema": ["packages/schema/src/index.ts"],
+      "@noahclark/architecture": ["packages/architecture/src/index.ts"],
+      "@noahclark/graph-engine": ["packages/graph-engine/src/index.ts"],
+      "@noahclark/console": ["packages/console/src/index.ts"],
+      "@noahclark/ui": ["packages/ui/src/index.ts"],
+      "@noahclark/theme": ["packages/theme/src/index.ts"]
+    }
+  }
+}

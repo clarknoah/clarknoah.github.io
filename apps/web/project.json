@@ -1,0 +1,24 @@
+{
+  "name": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web/src",
+  "projectType": "application",
+  "targets": {
+    "prebuild": {
+      "command": "bun run tools/gen-theme/index.ts && bun run tools/arch-introspect/index.ts"
+    },
+    "dev": {
+      "command": "bun run tools/gen-theme/index.ts && bun run tools/arch-introspect/index.ts && bunx vite --config apps/web/vite.config.ts"
+    },
+    "build": {
+      "command": "bun run tools/gen-theme/index.ts && bun run tools/arch-introspect/index.ts && bunx vite build --config apps/web/vite.config.ts",
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "preview": {
+      "command": "bunx vite preview --config apps/web/vite.config.ts"
+    },
+    "typecheck": {
+      "command": "tsc -p apps/web/tsconfig.json"
+    }
+  }
+}

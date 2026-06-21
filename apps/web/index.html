@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Noah Clark — Agentic Systems Architect. AI-native product engineering, built on knowledge graphs."
+    />
+    <meta property="og:title" content="Noah Clark — Agentic Systems Architect" />
+    <meta
+      property="og:description"
+      content="AI-native product engineering, built on knowledge graphs. 18 years from intelligence systems to consciousness platforms."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://noahclark.ing" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Noah Clark — Agentic Systems Architect</title>
+    <style>
+      /* Instant shell: a styled first paint before the bundle loads. */
+      html { background: #0a0c10; color: #e7eaf0; }
+      body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; }
+      #boot {
+        min-height: 100vh; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 0.75rem;
+      }
+      #boot .nm {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 600; letter-spacing: -0.02em;
+      }
+      #boot .ti { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #4dd0c4; }
+      #boot .dot { width: 6px; height: 6px; border-radius: 99px; background: #4dd0c4; animation: p 1s ease-in-out infinite; }
+      @keyframes p { 0%,100% { opacity: 0.25 } 50% { opacity: 1 } }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="boot">
+        <div class="nm">Noah Clark</div>
+        <div class="ti">agentic systems architect</div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

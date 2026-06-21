@@ -1,0 +1,3 @@
+[install]
+# Exact, reproducible installs for a portfolio that doubles as an architecture demo.
+exact = false

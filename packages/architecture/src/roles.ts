@@ -1,0 +1,185 @@
+import { role } from '@noahclark/schema'
+
+/**
+ * Roles, chronological. Copy is grounded in the résumé (epistemic-mode: no hype,
+ * metrics traceable). `kind` drives the node's shape/colour in the graph.
+ */
+export const roles = [
+  role({
+    id: 'usaf-analyst',
+    kind: 'military',
+    org: 'usaf',
+    title: 'Intelligence Analyst / Physical Security Penetration Tester',
+    start: '2007-09',
+    end: '2011-07',
+    summary:
+      'Cyber intelligence analyst and physical security penetration tester. Tested the Air Force’s security posture and briefed personnel on cyber threats.',
+    threads: ['intelligence'],
+    skills: ['python'],
+  }),
+  role({
+    id: 'questor',
+    kind: 'employment',
+    org: 'questor',
+    title: 'Technology Consultant',
+    start: '2011-07',
+    end: '2013-05',
+    summary:
+      'Consulted on IT consolidation across the US Intelligence Community, building roadmaps with senior leadership to reduce duplicative IT footprint.',
+    threads: ['intelligence'],
+  }),
+  role({
+    id: 'dia-architect',
+    kind: 'employment',
+    org: 'thermopylae',
+    title: 'Senior Systems Architect / Senior Software Engineer',
+    start: '2013-05',
+    end: '2015-08',
+    location: 'Washington, DC',
+    summary:
+      'At DMI / Thermopylae, set strategy for consolidating the Defense Intelligence Agency’s IT infrastructure onto centralised cloud, and served as architect and lead engineer of the DIA’s IT asset management system.',
+    highlights: [
+      'Developed the strategy and execution plan for consolidating a $1.1B IT infrastructure onto centralised cloud',
+      'Architected and led development of the DIA’s IT asset management system',
+      'Modelled assets as a graph with Neo4j, d3.js, and cytoscape.js — the first knowledge-graph system in a 13-year through-line',
+    ],
+    metrics: [{ label: 'IT infrastructure scope', value: '$1.1B' }],
+    threads: ['intelligence', 'graph'],
+    projects: ['dia-asset-mgmt'],
+    skills: ['openstack', 'angular', 'php', 'neo4j', 'd3', 'cytoscape'],
+  }),
+  role({
+    id: 'cmu',
+    kind: 'research',
+    org: 'cmu',
+    title: 'Software Developer',
+    start: '2016-05',
+    end: '2017-05',
+    summary:
+      'Worked with the principal investigator of a neuroscience lab. Built an automated MATLAB pipeline for normalising and analysing fMRI data, and designed a full-stack platform for subjective-experience research — the conceptual origin of iAm.',
+    highlights: [
+      'Built an automated MATLAB pipeline to normalise and analyse fMRI data',
+      'Designed a full-stack subjective-experience research platform (Neo4j, TypeScript, React, Angular, GCP, Express, Docker)',
+    ],
+    threads: ['consciousness', 'graph'],
+    projects: ['fmri-pipeline', 'cmu-psych-platform'],
+    skills: ['matlab', 'neo4j', 'typescript', 'react', 'angular', 'gcp', 'docker'],
+  }),
+  role({
+    id: 'thermopylae-geo',
+    kind: 'employment',
+    org: 'thermopylae',
+    title: 'Geospatial Analyst / Software Engineer',
+    start: '2018-11',
+    end: '2020-01',
+    summary:
+      'Supported global commercial imagery collection and automated the collection pipeline.',
+    highlights: [
+      'Automated imagery compression/decompression in Node.js, removing ~400 hours of manual labour',
+    ],
+    metrics: [{ label: 'Manual labour removed', value: '~400 hrs' }],
+    threads: ['intelligence'],
+    projects: ['imagery-pipeline'],
+    skills: ['javascript'],
+  }),
+  role({
+    id: 'ga-instructor',
+    kind: 'instruction',
+    org: 'ga',
+    title: 'Instructor Team Lead / Full-Stack Engineer',
+    start: '2020-01',
+    end: '2020-12',
+    summary:
+      'Taught and maintained the 500-hour full-stack engineering immersive, and built internal tooling — including a learning platform structured as a hierarchical knowledge graph.',
+    highlights: [
+      'Taught the full-stack immersive: Git, HTML/CSS/JS, Python, React, Mongo, PostgreSQL, Django, Node/Express',
+      'Built an automated grading application in Node.js for the DC campus',
+      'Built a spaced-repetition learning platform on a hierarchical knowledge-graph data structure (Neo4j, Node, Express, React)',
+    ],
+    threads: ['graph'],
+    projects: ['ga-grading-app', 'ga-learning-platform'],
+    skills: ['react', 'javascript', 'python', 'neo4j', 'postgresql', 'mongodb'],
+  }),
+  role({
+    id: 'nderf',
+    kind: 'employment',
+    org: 'nderf',
+    title: 'Full-Stack Engineer / Data Manager',
+    start: '2020-01',
+    end: '2021-05',
+    summary:
+      'Designed the system architecture and a prototype API platform for the Near Death Experience Research Foundation’s data and collection workflow.',
+    threads: ['consciousness'],
+    projects: ['nderf-platform'],
+    skills: ['javascript', 'postgresql', 'react', 'heroku'],
+  }),
+  role({
+    id: 'sei',
+    kind: 'employment',
+    org: 'sei',
+    title: 'Engineering Manager / Senior Full-Stack Engineer',
+    start: '2021-05',
+    end: '2023-09',
+    summary:
+      'Engineering manager and platform subject-matter expert for an EdTech SaaS startup. Owned architecture, managed the team, and scaled the product from a few hundred users to over a million.',
+    highlights: [
+      'Scaled the platform from a few hundred users and two clients to 1.2M+ users and 59 corporate partners',
+      'Managed four engineers and three QA specialists',
+      'Owned platform architecture, CI/CD pipelines, and code-review standards',
+    ],
+    metrics: [
+      { label: 'Users', value: '1.2M+' },
+      { label: 'Corporate partners', value: '59' },
+      { label: 'Team', value: '7 (4 eng + 3 QA)' },
+    ],
+    threads: ['scale'],
+    projects: ['workforceedge'],
+    skills: ['typescript', 'apollo', 'graphql', 'postgresql', 'redis', 'react', 'aws', 'ci-cd'],
+  }),
+  role({
+    id: 'iam-founder',
+    kind: 'founding',
+    org: 'iam',
+    title: 'Founder',
+    start: '2023-09',
+    end: 'present',
+    summary:
+      'Sole founder of iAm, a SaaS platform for measuring and analysing subjective experience in real time. Designed and shipped the whole stack — a graph-native data framework that unifies surveys and real-time reporting, delivered cross-platform.',
+    highlights: [
+      'Designed a flexible graph-based data framework on Neo4j for first-person experience data',
+      'Developed a methodology for real-time subjective-experience measurement',
+      'Built and deployed the full platform solo (Neo4j, TypeScript, Node, Apollo, GraphQL, React, GCP/GKE)',
+      'Shipped cross-platform to iOS and Android with Capacitor',
+    ],
+    threads: ['consciousness', 'graph', 'ai-native'],
+    projects: ['iam'],
+    skills: ['neo4j', 'typescript', 'apollo', 'graphql', 'react', 'capacitor', 'gcp', 'kubernetes', 'aws'],
+  }),
+  role({
+    id: 'quatt',
+    kind: 'employment',
+    org: 'quatt',
+    title: 'Cloud Team Lead',
+    start: '2024-11',
+    end: 'present',
+    location: 'Amsterdam, NL',
+    summary:
+      'Lead the team building the cloud platform behind a fleet of 20,000+ IoT-connected heat pumps — from device telemetry ingestion through real-time processing, APIs, dashboards, and analytics. Work daily across firmware, backend, mobile, and data boundaries.',
+    highlights: [
+      'Own the real-time telemetry pipeline (MQTT, AWS IoT Core, SQS) for 20,000+ distributed devices',
+      'Redesigned the fleet-management dashboard: remote diagnostics, live telemetry, device control',
+      'Shipped 3 hardware products end-to-end: protocol design through commissioning, APIs, dashboards',
+      'Created Atlas, a typed knowledge-graph modelling 670 entities, 41 repos, and 600+ device fields with cross-language type generation',
+      'Built AI-assisted code-review and debugging tooling (Claude Code, MCP); managed 20+ releases',
+    ],
+    metrics: [
+      { label: 'IoT devices', value: '20,000+' },
+      { label: 'Engineers led', value: '5' },
+      { label: 'Atlas entities', value: '670' },
+      { label: 'Releases', value: '20+' },
+    ],
+    threads: ['scale', 'ai-native', 'graph'],
+    projects: ['atlas'],
+    skills: ['typescript', 'mqtt', 'aws', 'clickhouse', 'mysql', 'redis', 'kafka', 'nx', 'claude-code', 'mcp', 'openapi', 'asyncapi'],
+  }),
+]

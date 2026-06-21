@@ -1,0 +1,11 @@
+{
+  "name": "console",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/console/src",
+  "projectType": "library",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p packages/console/tsconfig.json"
+    }
+  }
+}

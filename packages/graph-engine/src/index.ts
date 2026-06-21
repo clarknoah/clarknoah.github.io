@@ -1,0 +1,5 @@
+export { parseMonth, yearOf, rolesChronological, careerSpan } from './timeline'
+export { buildIndex, CareerIndex } from './query'
+export type { ResolvedEntity, AnyEntity } from './query'
+export { toElements } from './elements'
+export type { GraphElements, GraphNodeData, GraphEdgeData } from './elements'

@@ -1,0 +1,13 @@
+{
+  "name": "@noahclark/schema",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@noahclark/theme": "workspace:*",
+    "zod": "^4.4.3"
+  }
+}
