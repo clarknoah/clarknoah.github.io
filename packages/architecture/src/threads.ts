@@ -10,14 +10,14 @@ export const threads = [
     label: 'Knowledge Graphs',
     blurb:
       'Building typed graph data models since 2013. The same conviction runs from the DIA asset graph to Atlas.',
-    evidence: ['dia-architect', 'dia-asset-mgmt', 'cmu-psych-platform', 'ga-learning-platform', 'iam', 'atlas'],
+    evidence: ['dia-architect', 'dia-asset-mgmt', 'ga-learning-platform', 'iam', 'atlas'],
   }),
   thread({
     id: 'consciousness',
     label: 'Consciousness & Neurophenomenology',
     blurb:
       'A decade of work at the intersection of software and first-person experience, from fMRI pipelines to iAm.',
-    evidence: ['cmu', 'fmri-pipeline', 'cmu-psych-platform', 'nderf', 'nderf-platform', 'iam-founder', 'iam'],
+    evidence: ['cmu', 'fmri-pipeline', 'nderf', 'nderf-platform', 'iam-founder', 'iam'],
   }),
   thread({
     id: 'intelligence',

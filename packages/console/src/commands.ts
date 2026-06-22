@@ -28,11 +28,12 @@ export const commands: Command[] = [
   },
   {
     name: 'lens',
-    usage: 'lens <timeline|capabilities|graph>',
+    usage: 'lens <graph|timeline|projects|capabilities>',
     describe: 'Switch the portfolio lens.',
     run: (args) => {
       const l = args[0]
-      if (l !== 'timeline' && l !== 'capabilities' && l !== 'graph') return err('usage: lens <timeline|capabilities|graph>')
+      if (l !== 'timeline' && l !== 'capabilities' && l !== 'graph' && l !== 'projects')
+        return err('usage: lens <graph|timeline|projects|capabilities>')
       return ok([line(`→ ${l}`, 'accent')], [{ type: 'setView', view: 'portfolio' }, { type: 'setLens', lens: l }])
     },
   },

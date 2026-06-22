@@ -3,8 +3,9 @@ import { lazy, Suspense } from 'react'
 import { EntityPanel } from '../components/EntityPanel'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { Capabilities, Contact, Hero, Now, SelectedWork, StatWall } from '../sections'
-import { Timeline } from '../lenses/Timeline'
 import { LensSwitch } from '../lenses/LensSwitch'
+import { Projects } from '../lenses/Projects'
+import { Timeline } from '../lenses/Timeline'
 import { useStore } from '../store'
 
 const CareerGraph = lazy(() => import('../graph/CareerGraph').then((m) => ({ default: m.CareerGraph })))
@@ -12,7 +13,9 @@ const CareerGraph = lazy(() => import('../graph/CareerGraph').then((m) => ({ def
 export function PortfolioView() {
   const { state } = useStore()
   const isMobile = useMediaQuery('(max-width: 768px)')
-  const available: Lens[] = isMobile ? ['timeline', 'capabilities'] : ['graph', 'timeline', 'capabilities']
+  const available: Lens[] = isMobile
+    ? ['timeline', 'projects', 'capabilities']
+    : ['graph', 'timeline', 'projects', 'capabilities']
   const lens: Lens = isMobile && state.lens === 'graph' ? 'timeline' : state.lens
 
   return (
@@ -35,6 +38,7 @@ export function PortfolioView() {
           </Suspense>
         )}
         {lens === 'timeline' && <Timeline />}
+        {lens === 'projects' && <Projects />}
         {lens === 'capabilities' && <Capabilities />}
       </section>
       <SelectedWork />

@@ -58,14 +58,11 @@ export const roles = [
     end: '2017-05',
     location: { label: 'Pittsburgh, PA', lat: 40.4406, lng: -79.9959 },
     summary:
-      'Worked with the principal investigator of a neuroscience lab. Built an automated MATLAB pipeline for normalising and analysing fMRI data, and designed a full-stack platform for subjective-experience research, the conceptual origin of iAm.',
-    highlights: [
-      'Built an automated MATLAB pipeline to normalise and analyse fMRI data',
-      'Designed a full-stack subjective-experience research platform (Neo4j, TypeScript, React, Angular, GCP, Express, Docker)',
-    ],
-    threads: ['consciousness', 'graph'],
-    projects: ['fmri-pipeline', 'cmu-psych-platform'],
-    skills: ['matlab', 'neo4j', 'typescript', 'react', 'angular', 'gcp', 'docker'],
+      'Worked with the principal investigator of a neuroscience lab, building an automated MATLAB pipeline for normalising and analysing fMRI data. The start of a decade working at the intersection of software and first-person experience.',
+    highlights: ['Built an automated MATLAB pipeline to normalise and analyse fMRI data'],
+    threads: ['consciousness'],
+    projects: ['fmri-pipeline'],
+    skills: ['matlab'],
   }),
   role({
     id: 'thermopylae-geo',
@@ -186,7 +183,7 @@ export const roles = [
       { label: 'Releases', value: '20+' },
     ],
     threads: ['scale', 'ai-native', 'graph'],
-    projects: ['atlas'],
+    projects: ['atlas', 'quatt-cloud'],
     skills: ['typescript', 'mqtt', 'aws', 'clickhouse', 'mysql', 'redis', 'kafka', 'nx', 'claude-code', 'mcp', 'openapi', 'asyncapi'],
   }),
 ]

@@ -29,6 +29,8 @@ const defs: Array<[string, string, SkillCategory]> = [
   ['github-actions', 'GitHub Actions', 'infra'],
   // frontend
   ['react', 'React', 'frontend'],
+  ['nextjs', 'Next.js', 'frontend'],
+  ['vite', 'Vite', 'frontend'],
   ['angular', 'Angular', 'frontend'],
   ['tailwind', 'Tailwind CSS', 'frontend'],
   ['capacitor', 'Capacitor', 'frontend'],

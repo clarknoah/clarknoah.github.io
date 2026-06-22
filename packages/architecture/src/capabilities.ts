@@ -11,7 +11,7 @@ export const capabilities = [
     blurb:
       'Designing typed graph data models (Neo4j) that stay queryable and coherent as they grow.',
     threads: ['graph'],
-    evidence: ['dia-asset-mgmt', 'cmu-psych-platform', 'iam', 'atlas'],
+    evidence: ['dia-asset-mgmt', 'ga-learning-platform', 'iam', 'atlas'],
   }),
   capability({
     id: 'ai-native-tooling',
@@ -50,6 +50,6 @@ export const capabilities = [
     blurb:
       'Building first-person and scientific measurement platforms: structured capture, real-time reporting, analysis.',
     threads: ['consciousness', 'graph'],
-    evidence: ['cmu-psych-platform', 'nderf-platform', 'iam'],
+    evidence: ['cmu', 'nderf-platform', 'iam'],
   }),
 ]

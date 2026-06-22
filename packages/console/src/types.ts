@@ -1,7 +1,7 @@
 import type { CareerIndex } from '@noahclark/graph-engine'
 
 export type View = 'portfolio' | 'repo' | 'story'
-export type Lens = 'timeline' | 'capabilities' | 'graph'
+export type Lens = 'timeline' | 'capabilities' | 'graph' | 'projects'
 
 /** Side-effects a command asks the UI to perform. The console never touches the DOM. */
 export type Intent =

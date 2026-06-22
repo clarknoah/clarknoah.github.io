@@ -18,6 +18,7 @@ export {
   ROLE_KINDS,
   SKILL_CATEGORIES,
   SECTORS,
+  PROJECT_KINDS,
 } from './schemas'
 export type {
   Org,
@@ -34,6 +35,7 @@ export type {
   RoleKind,
   SkillCategory,
   Sector,
+  ProjectKind,
 } from './schemas'
 
 export type { Dataset } from './dataset'

@@ -5,6 +5,7 @@ import { useStore } from '../store'
 const ALL: { id: Lens; label: string }[] = [
   { id: 'graph', label: 'graph' },
   { id: 'timeline', label: 'timeline' },
+  { id: 'projects', label: 'projects' },
   { id: 'capabilities', label: 'capabilities' },
 ]
 

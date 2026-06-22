@@ -12,6 +12,7 @@ export const THREAD_IDS = ['graph', 'consciousness', 'intelligence', 'scale', 'a
 export const ROLE_KINDS = ['employment', 'military', 'founding', 'instruction', 'research'] as const
 export const SKILL_CATEGORIES = ['lang', 'db', 'infra', 'frontend', 'data', 'ai', 'practice'] as const
 export const SECTORS = ['defense', 'gov', 'academia', 'research', 'edtech', 'iot', 'own'] as const
+export const PROJECT_KINDS = ['platform', 'pipeline', 'system', 'tool', 'prototype', 'website'] as const
 
 const threadId = z.enum(THREAD_IDS)
 const metric = z.object({
@@ -55,7 +56,9 @@ export const roleSchema = z.object({
 export const projectSchema = z.object({
   id: z.string(),
   name: z.string(),
-  role: z.string().optional(),
+  kind: z.enum(PROJECT_KINDS),
+  role: z.string().optional(), // omitted for standalone (client/personal) projects
+  year: z.string().optional(), // for standalone projects with no role to date them
   summary: z.string(),
   url: z.string().optional(),
   highlights: z.array(z.string()).default([]),
@@ -112,6 +115,7 @@ export type ThreadId = (typeof THREAD_IDS)[number]
 export type RoleKind = (typeof ROLE_KINDS)[number]
 export type SkillCategory = (typeof SKILL_CATEGORIES)[number]
 export type Sector = (typeof SECTORS)[number]
+export type ProjectKind = (typeof PROJECT_KINDS)[number]
 
 export type Org = z.infer<typeof orgSchema>
 export type Role = z.infer<typeof roleSchema>
