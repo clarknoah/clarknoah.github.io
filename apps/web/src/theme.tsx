@@ -49,7 +49,7 @@ export function ThemeToggle() {
           type="button"
           onClick={() => setPref(o.id)}
           aria-pressed={pref === o.id}
-          className={cx('rounded-full px-2 py-0.5', pref === o.id ? 'bg-surface-raised text-accent' : 'text-text-faint hover:text-text-muted')}
+          className={cx('rounded-full px-1.5 py-0.5', pref === o.id ? 'bg-surface-raised text-accent' : 'text-text-faint hover:text-text-muted')}
         >
           {o.label}
         </button>

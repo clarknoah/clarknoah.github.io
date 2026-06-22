@@ -86,8 +86,9 @@ export function StoryView() {
         <p className="mt-2 font-mono text-xs text-text-faint">scroll ↓</p>
       </div>
 
-      {/* Sticky stage; the active era's visualization crossfades in. */}
-      <div className="pointer-events-none sticky top-0 z-0 flex h-screen items-center justify-center px-6">
+      {/* Sticky stage; the active era's visualization crossfades in. On mobile the viz
+          sits in the top portion so the scene card (bottom) never covers it. */}
+      <div className="pointer-events-none sticky top-0 z-0 flex h-screen items-start justify-center px-6 pt-20 md:items-center md:pt-0">
         <AnimatePresence mode="wait">
           {step && (
             <motion.div
@@ -96,7 +97,7 @@ export function StoryView() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.4 }}
-              className="flex w-full max-w-[520px] items-center justify-center"
+              className="flex w-full max-w-[300px] items-center justify-center md:max-w-[520px]"
             >
               <Viz role={step.role} active />
             </motion.div>
