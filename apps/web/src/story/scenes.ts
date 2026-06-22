@@ -1,25 +1,34 @@
 import { parseMonth } from '@noahclark/graph-engine'
 import { dataset } from '../lib'
 
-export type VizKind = 'radar' | 'graph' | 'signal' | 'globe' | 'growth' | 'swarm'
+export type VizKind =
+  | 'forge'
+  | 'silos'
+  | 'catalog'
+  | 'brain'
+  | 'globe'
+  | 'tree'
+  | 'growth'
+  | 'thoughtstream'
+  | 'swarm'
 
 export interface Scene {
   roleId: string
   viz: VizKind
 }
 
-// One bespoke visualization per era. Some (graph) intentionally recur and grow.
+// One bespoke visualization per era (designed with Noah).
 const vizByRole: Record<string, VizKind> = {
-  'usaf-analyst': 'radar',
-  questor: 'radar',
-  'dia-architect': 'graph',
-  cmu: 'signal',
+  'usaf-analyst': 'forge', // social engineering + document forging
+  questor: 'silos', // ICITE: agency silos -> shared cloud
+  'dia-architect': 'catalog', // Book of Apps: catalog -> dependency graph
+  cmu: 'brain', // fMRI activation
   'thermopylae-geo': 'globe',
-  'ga-instructor': 'graph',
-  nderf: 'signal',
+  'ga-instructor': 'tree', // curriculum tree
+  nderf: 'brain',
   sei: 'growth',
-  'iam-founder': 'graph',
-  quatt: 'swarm',
+  'iam-founder': 'thoughtstream', // live thought-stream graph
+  quatt: 'swarm', // telemetry swarm -> Atlas graph
 }
 
 export const scenes: Scene[] = [...dataset.roles]

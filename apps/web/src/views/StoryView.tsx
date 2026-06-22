@@ -4,18 +4,25 @@ import { AnimatePresence, motion, useInView } from 'motion/react'
 import { type ComponentType, useEffect, useRef, useState } from 'react'
 import { dataset } from '../lib'
 import { scenes, type VizKind } from '../story/scenes'
+import { BrainViz } from '../story/viz/BrainViz'
+import { CatalogViz } from '../story/viz/CatalogViz'
 import { GlobeViz } from '../story/viz/GlobeViz'
 import { GrowthViz } from '../story/viz/GrowthViz'
-import { RadarViz } from '../story/viz/RadarViz'
+import { SilosViz } from '../story/viz/SilosViz'
 
 type VizProps = { role: Role; active: boolean }
-// Implemented viz; graph/signal/swarm fall back to the globe until built.
+const asViz = (c: ComponentType<{ role: unknown; active: boolean }>) => c as ComponentType<VizProps>
+
+// Implemented viz; forge/tree/thoughtstream/swarm fall back to the globe until built.
 const VIZ: Record<VizKind, ComponentType<VizProps>> = {
-  radar: RadarViz as ComponentType<VizProps>,
-  growth: GrowthViz as ComponentType<VizProps>,
+  silos: asViz(SilosViz),
+  catalog: asViz(CatalogViz),
+  brain: asViz(BrainViz),
+  growth: asViz(GrowthViz),
   globe: GlobeViz,
-  graph: GlobeViz,
-  signal: GlobeViz,
+  forge: GlobeViz,
+  tree: GlobeViz,
+  thoughtstream: GlobeViz,
   swarm: GlobeViz,
 }
 
