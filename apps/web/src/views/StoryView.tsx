@@ -6,24 +6,28 @@ import { dataset } from '../lib'
 import { scenes, type VizKind } from '../story/scenes'
 import { BrainViz } from '../story/viz/BrainViz'
 import { CatalogViz } from '../story/viz/CatalogViz'
+import { ForgeViz } from '../story/viz/ForgeViz'
 import { GlobeViz } from '../story/viz/GlobeViz'
 import { GrowthViz } from '../story/viz/GrowthViz'
 import { SilosViz } from '../story/viz/SilosViz'
+import { SwarmAtlasViz } from '../story/viz/SwarmAtlasViz'
+import { ThoughtStreamViz } from '../story/viz/ThoughtStreamViz'
+import { TreeViz } from '../story/viz/TreeViz'
 
 type VizProps = { role: Role; active: boolean }
 const asViz = (c: ComponentType<{ role: unknown; active: boolean }>) => c as ComponentType<VizProps>
 
-// Implemented viz; forge/tree/thoughtstream/swarm fall back to the globe until built.
+// One bespoke visualization per era (designed with Noah).
 const VIZ: Record<VizKind, ComponentType<VizProps>> = {
+  forge: asViz(ForgeViz),
   silos: asViz(SilosViz),
   catalog: asViz(CatalogViz),
   brain: asViz(BrainViz),
-  growth: asViz(GrowthViz),
   globe: GlobeViz,
-  forge: GlobeViz,
-  tree: GlobeViz,
-  thoughtstream: GlobeViz,
-  swarm: GlobeViz,
+  tree: asViz(TreeViz),
+  growth: asViz(GrowthViz),
+  thoughtstream: asViz(ThoughtStreamViz),
+  swarm: asViz(SwarmAtlasViz),
 }
 
 const roleById = new Map(dataset.roles.map((r) => [r.id, r]))
