@@ -24,7 +24,16 @@ export function RepoView() {
   const [sel, setSel] = useState('iam')
   const [source, setSource] = useState(false)
   const [packages, setPackages] = useState<Pkg[]>([])
+  const [openFolders, setOpenFolders] = useState<Set<string>>(new Set(['roles', 'projects']))
   const resolved = index.entity(sel)
+
+  const toggleFolder = (type: string) =>
+    setOpenFolders((prev) => {
+      const next = new Set(prev)
+      if (next.has(type)) next.delete(type)
+      else next.add(type)
+      return next
+    })
 
   useEffect(() => {
     fetch('/repo.json')
@@ -45,27 +54,41 @@ export function RepoView() {
 
       <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-[260px_1fr]">
         <nav className="h-fit rounded-lg border border-border bg-surface p-3">
-          {groups.map((g) => (
-            <div key={g.type} className="mb-3">
-              <div className="text-text-faint">{g.type}/</div>
-              <ul className="mt-1">
-                {g.items.map((it) => (
-                  <li key={it.id}>
-                    <button
-                      type="button"
-                      onClick={() => setSel(it.id)}
-                      className={cx(
-                        'block w-full truncate py-0.5 pl-3 text-left',
-                        sel === it.id ? 'text-accent' : 'text-text-muted hover:text-text',
-                      )}
-                    >
-                      {it.id}.ts
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="mb-1 text-text-faint">packages/architecture/src/</div>
+          {groups.map((g) => {
+            const isOpen = openFolders.has(g.type)
+            return (
+              <div key={g.type}>
+                <button
+                  type="button"
+                  onClick={() => toggleFolder(g.type)}
+                  className="flex w-full items-center gap-1.5 py-0.5 text-left text-text-muted hover:text-text"
+                >
+                  <span className="w-2 text-accent">{isOpen ? '▾' : '▸'}</span>
+                  <span>{g.type}/</span>
+                  <span className="text-text-faint">{g.items.length}</span>
+                </button>
+                {isOpen && (
+                  <ul className="ml-[7px] border-border border-l pl-3">
+                    {g.items.map((it) => (
+                      <li key={it.id}>
+                        <button
+                          type="button"
+                          onClick={() => setSel(it.id)}
+                          className={cx(
+                            'block w-full truncate py-0.5 text-left',
+                            sel === it.id ? 'text-accent' : 'text-text-muted hover:text-text',
+                          )}
+                        >
+                          {it.id}.ts
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )
+          })}
         </nav>
 
         <div className="h-fit rounded-lg border border-border bg-surface">
