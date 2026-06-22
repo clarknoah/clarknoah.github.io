@@ -1,26 +1,24 @@
 import { toElements } from '@noahclark/graph-engine'
 import {
+  BaseEdge,
   Background,
   Controls,
   type Edge,
+  type EdgeProps,
+  getStraightPath,
   Handle,
   type Node,
   type NodeProps,
   Position,
   ReactFlow,
+  useInternalNode,
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
-import {
-  forceCollide,
-  forceLink,
-  forceManyBody,
-  forceSimulation,
-  forceX,
-  forceY,
-} from 'd3-force'
-import { useMemo } from 'react'
+import { cx } from '@noahclark/ui'
+import { useEffect, useMemo, useState } from 'react'
 import { dataset } from '../lib'
 import { useStore } from '../store'
+import { computeLayout, LAYOUTS, type LayoutKind } from './layouts'
 import { useThemeMode } from './useThemeMode'
 
 type NodeData = {
@@ -34,39 +32,30 @@ type NodeData = {
 
 const els = toElements(dataset)
 
-// Static d3-force layout, computed once. No animation frames => no remount races.
-const positions = (() => {
-  const sim = els.nodes.map((n, i) => {
-    const a = i * 2.39996 // golden angle, deterministic seed
-    const r = 8 * Math.sqrt(i)
-    return { id: n.data.id, size: n.data.size, x: r * Math.cos(a), y: r * Math.sin(a) }
-  })
-  const links = els.edges.map((e) => ({ source: e.data.source, target: e.data.target }))
-  const s = forceSimulation(sim as never)
-    .force('charge', forceManyBody().strength(-130))
-    // biome-ignore lint/suspicious/noExplicitAny: d3-force generic id accessor
-    .force('link', forceLink(links as never).id((d: any) => d.id).distance(58).strength(0.7))
-    // pull toward centre so the graph stays cohesive (no flung outliers)
-    .force('x', forceX(0).strength(0.08))
-    .force('y', forceY(0).strength(0.08))
-    // biome-ignore lint/suspicious/noExplicitAny: d3 node datum
-    .force('collide', forceCollide().radius((d: any) => d.size / 2 + 12))
-    .stop()
-  for (let i = 0; i < 420; i++) s.tick()
-  return new Map(sim.map((n) => [n.id, { x: n.x ?? 0, y: n.y ?? 0 }]))
-})()
+// Floating edge: draws between node centres, so it looks right in every layout.
+function FloatingEdge({ id, source, target, style }: EdgeProps) {
+  const s = useInternalNode(source)
+  const t = useInternalNode(target)
+  if (!s || !t) return null
+  const sx = s.internals.positionAbsolute.x + (s.measured.width ?? 0) / 2
+  const sy = s.internals.positionAbsolute.y + (s.measured.height ?? 0) / 2
+  const tx = t.internals.positionAbsolute.x + (t.measured.width ?? 0) / 2
+  const ty = t.internals.positionAbsolute.y + (t.measured.height ?? 0) / 2
+  const [path] = getStraightPath({ sourceX: sx, sourceY: sy, targetX: tx, targetY: ty })
+  return <BaseEdge id={id} path={path} style={style} />
+}
 
 function EntityNode({ data, selected }: NodeProps<Node<NodeData>>) {
   const showLabel = data.kind !== 'skill'
   return (
-    <div style={{ opacity: data.dimmed ? 0.12 : 1 }} className="relative flex flex-col items-center transition-opacity">
+    <div style={{ opacity: data.dimmed ? 0.1 : 1 }} className="relative flex flex-col items-center transition-opacity">
       <Handle type="target" position={Position.Top} className="!opacity-0" />
       <div
         title={data.label}
         style={{
           width: data.size,
           height: data.size,
-          backgroundColor: `color-mix(in oklab, ${data.color} 22%, transparent)`,
+          backgroundColor: `color-mix(in oklab, ${data.color} 24%, transparent)`,
           borderColor: data.color,
           boxShadow: selected ? `0 0 0 2px ${data.color}` : undefined,
         }}
@@ -83,10 +72,23 @@ function EntityNode({ data, selected }: NodeProps<Node<NodeData>>) {
 }
 
 const nodeTypes = { entity: EntityNode }
+const edgeTypes = { floating: FloatingEdge }
 
 export function CareerGraph() {
   const { state, dispatch } = useStore()
   const mode = useThemeMode()
+  const [layout, setLayout] = useState<LayoutKind>('force')
+  const [fullscreen, setFullscreen] = useState(false)
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setFullscreen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  const positions = useMemo(() => computeLayout(layout, els), [layout])
 
   const active = useMemo(() => {
     if (state.highlightThread) {
@@ -121,7 +123,7 @@ export function CareerGraph() {
           dimmed: active ? !active.has(n.data.id) : false,
         },
       })),
-    [active],
+    [positions, active],
   )
 
   const edges: Edge[] = useMemo(
@@ -132,26 +134,58 @@ export function CareerGraph() {
           id: e.data.id,
           source: e.data.source,
           target: e.data.target,
-          style: { stroke: 'var(--color-border-strong)', strokeWidth: 1, opacity: dim ? 0.04 : 0.35 },
+          type: 'floating',
+          style: { stroke: 'var(--color-border-strong)', strokeWidth: 1, opacity: dim ? 0.04 : 0.32 },
         }
       }),
     [active],
   )
 
   return (
-    <div className="h-[62vh] min-h-[420px] w-full overflow-hidden rounded-lg border border-border bg-surface">
+    <div
+      className={cx(
+        'relative w-full overflow-hidden border border-border bg-surface',
+        fullscreen ? 'fixed inset-0 z-[80] rounded-none' : 'h-[62vh] min-h-[420px] rounded-lg',
+      )}
+    >
+      {/* control bar */}
+      <div className="pointer-events-none absolute top-2 right-2 z-10 flex items-center gap-2">
+        <div className="pointer-events-auto flex rounded-md border border-border bg-ink/85 p-0.5 font-mono text-[11px] backdrop-blur">
+          {LAYOUTS.map((l) => (
+            <button
+              key={l.id}
+              type="button"
+              onClick={() => setLayout(l.id)}
+              className={cx('rounded px-2 py-1', layout === l.id ? 'bg-surface-raised text-accent' : 'text-text-muted hover:text-text')}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={() => setFullscreen((f) => !f)}
+          className="pointer-events-auto rounded-md border border-border bg-ink/85 px-2 py-1.5 font-mono text-[11px] text-text-muted backdrop-blur hover:text-accent"
+          title={fullscreen ? 'exit full screen (esc)' : 'full screen'}
+        >
+          {fullscreen ? '✕ exit' : '⤢ full'}
+        </button>
+      </div>
+
       <ReactFlow
+        key={`${layout}-${fullscreen}`}
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         colorMode={mode}
         fitView
         fitViewOptions={{ padding: 0.18 }}
-        minZoom={0.2}
-        maxZoom={2}
+        minZoom={0.1}
+        maxZoom={2.5}
         proOptions={{ hideAttribution: true }}
         onNodeClick={(_e, n) => dispatch({ type: 'openEntity', id: n.id })}
-        nodesDraggable={false}
+        nodesDraggable={!fullscreen ? false : true}
         nodesConnectable={false}
         edgesFocusable={false}
       >
