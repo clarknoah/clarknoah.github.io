@@ -12,6 +12,7 @@
     "@noahclark/theme": "workspace:*",
     "@noahclark/ui": "workspace:*",
     "@xyflow/react": "^12.11.0",
+    "animejs": "^4.5.0",
     "cobe": "0.6.3",
     "d3-force": "^3.0.0",
     "motion": "^12.40.0",
