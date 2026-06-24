@@ -37,17 +37,29 @@ export function GrowthViz({ active }: { role: unknown; active: boolean }) {
       </div>
       <div className="mt-1 font-mono text-sm text-accent">across 59 enterprise partners</div>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="mt-8 h-44 w-full" aria-hidden>
+        <defs>
+          <linearGradient id="growthArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e0a23b" stopOpacity="0.55" />
+            <stop offset="55%" stopColor="#c95f33" stopOpacity="0.24" />
+            <stop offset="100%" stopColor="#8157d6" stopOpacity="0.04" />
+          </linearGradient>
+          <linearGradient id="growthLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#8157d6" />
+            <stop offset="50%" stopColor="#c95f33" />
+            <stop offset="100%" stopColor="#e0a23b" />
+          </linearGradient>
+        </defs>
         <motion.path
           d={area}
-          fill="var(--color-accent)"
+          fill="url(#growthArea)"
           initial={{ opacity: 0 }}
-          animate={active ? { opacity: 0.12 } : { opacity: 0 }}
+          animate={active ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.7 }}
         />
         <motion.path
           d={line}
           fill="none"
-          stroke="var(--color-accent)"
+          stroke="url(#growthLine)"
           strokeWidth={1.5}
           vectorEffect="non-scaling-stroke"
           initial={{ pathLength: 0 }}
