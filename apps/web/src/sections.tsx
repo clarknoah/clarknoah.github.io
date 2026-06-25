@@ -1,4 +1,4 @@
-import { Section, Stat, Tag } from '@noahclark/ui'
+import { Section, Tag } from '@noahclark/ui'
 import { motion } from 'motion/react'
 import { dataset, index, profile, services, threadColor } from './lib'
 import { useStore } from './store'
@@ -11,88 +11,38 @@ const reveal = {
   transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
 }
 
-const currentRoles = dataset.roles.filter((r) => r.end === 'present')
-
-// Verified figures only (each traces to the résumé). Kept terse and faint under the headline.
-const HERO_FIGURES = [
-  { v: '1.2M', l: 'users scaled' },
-  { v: '20,000+', l: 'devices in production' },
-  { v: '670', l: 'entity graph, agent-queryable' },
-]
-
+// A plain opening: a sentence of what I do, who it is for, and two quiet links.
+// No headline-as-slogan, no numbers wall, no filled call-to-action button.
 export function Hero() {
   const { dispatch } = useStore()
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 pt-20 pb-14 md:pt-28">
-      <div className="grid items-start gap-10 lg:grid-cols-12">
-        <MotionDiv
-          className="lg:col-span-8"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="font-display text-base italic text-text-muted">
-            Independent {profile.title} · {profile.location.split(',')[0]}
-          </p>
-          <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.06] tracking-tight text-text md:text-6xl">
-            {profile.positioning}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">{profile.subhead}</p>
-
-          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
-            {HERO_FIGURES.map((f) => (
-              <div key={f.l} className="flex items-baseline gap-2">
-                <dt className="tabular text-text">{f.v}</dt>
-                <dd className="text-text-faint">{f.l}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-8 flex flex-wrap items-center gap-5">
-            <a
-              href={`mailto:${profile.email}`}
-              className="rounded-md bg-accent px-4 py-2 font-mono text-sm text-ink transition-opacity hover:opacity-90"
-            >
-              start a conversation
-            </a>
-            <button
-              type="button"
-              onClick={() => dispatch({ type: 'downloadResume' })}
-              className="font-mono text-sm text-text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
-            >
-              résumé ↗
-            </button>
-          </div>
-        </MotionDiv>
-
-        <MotionDiv
-          className="hidden lg:col-span-4 lg:block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <dl className="space-y-4 border-l border-border pl-6 text-base">
-            <div>
-              <dt className="font-display italic text-text-faint">Available</dt>
-              <dd className="mt-0.5 text-text">Independent and contract work</dd>
-            </div>
-            <div>
-              <dt className="font-display italic text-text-faint">Based in</dt>
-              <dd className="mt-0.5 text-text">{profile.location}</dd>
-            </div>
-            <div>
-              <dt className="font-display italic text-text-faint">Currently</dt>
-              <dd className="mt-0.5 space-y-0.5 text-text">
-                {currentRoles.map((r) => (
-                  <div key={r.id}>
-                    {r.title}, {dataset.orgs.find((o) => o.id === r.org)?.name}
-                  </div>
-                ))}
-              </dd>
-            </div>
-          </dl>
-        </MotionDiv>
-      </div>
+    <section className="mx-auto w-full max-w-6xl px-6 pt-20 pb-12 md:pt-28">
+      <MotionDiv
+        className="max-w-2xl"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <h1 className="font-display text-3xl font-medium leading-[1.15] tracking-tight text-text md:text-[2.6rem]">
+          {profile.positioning}
+        </h1>
+        <p className="mt-5 text-lg leading-relaxed text-text-muted">{profile.subhead}</p>
+        <div className="mt-6 flex flex-wrap items-center gap-5 text-base">
+          <a
+            href={`mailto:${profile.email}`}
+            className="text-accent underline-offset-4 hover:underline"
+          >
+            Get in touch
+          </a>
+          <button
+            type="button"
+            onClick={() => dispatch({ type: 'downloadResume' })}
+            className="text-text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
+          >
+            Résumé ↗
+          </button>
+        </div>
+      </MotionDiv>
     </section>
   )
 }
@@ -133,29 +83,6 @@ export function Services() {
           )
         })}
       </dl>
-    </Section>
-  )
-}
-
-const FEATURED_STATS = [
-  { value: '18 yrs', label: 'engineering', context: 'USAF to iAm' },
-  { value: '1.2M+', label: 'users scaled', context: 'WorkforceEdge' },
-  { value: '20,000+', label: 'IoT devices', context: 'Quatt fleet' },
-  { value: '670', label: 'Atlas entities', context: 'knowledge graph' },
-  { value: '59', label: 'enterprise partners', context: 'WorkforceEdge' },
-  { value: '$1.1B', label: 'infra strategy', context: 'DIA consolidation' },
-]
-
-export function StatWall() {
-  return (
-    <Section id="numbers" eyebrow="By the numbers" title="Scope, in figures">
-      <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
-        {FEATURED_STATS.map((s) => (
-          <MotionDiv key={s.label} {...reveal}>
-            <Stat value={s.value} label={s.label} context={s.context} />
-          </MotionDiv>
-        ))}
-      </div>
     </Section>
   )
 }
@@ -237,12 +164,12 @@ export function SelectedWork() {
 
 export function Now() {
   return (
-    <Section id="now" title="What I'm doing">
+    <Section id="now" title="Now">
       <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
-        Founding <span className="text-text">iAm</span>, a graph-native platform for measuring
-        subjective experience, and leading the cloud platform team at{' '}
-        <span className="text-text">Quatt</span>. Most of my attention goes to building products
-        end to end with AI agents at the centre of the work.
+        I build and run <span className="text-text">iAm</span>, a research platform for measuring
+        experience, and I lead the cloud platform team at <span className="text-text">Quatt</span>.
+        Most of my work is building things end to end: the data model, the backend, and the tools
+        on top.
       </p>
     </Section>
   )

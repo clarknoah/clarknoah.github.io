@@ -2,7 +2,7 @@ import type { Lens } from '@noahclark/console'
 import { lazy, Suspense } from 'react'
 import { EntityPanel } from '../components/EntityPanel'
 import { useMediaQuery } from '../hooks/useMediaQuery'
-import { Capabilities, Contact, Hero, Now, SelectedWork, Services, StatWall } from '../sections'
+import { Capabilities, Contact, Hero, Now, SelectedWork, Services } from '../sections'
 import { LensSwitch } from '../lenses/LensSwitch'
 import { Projects } from '../lenses/Projects'
 import { Timeline } from '../lenses/Timeline'
@@ -69,7 +69,6 @@ export function PortfolioView() {
         {lens === 'capabilities' && <Capabilities />}
       </section>
       <SelectedWork />
-      <StatWall />
       <Now />
       <Contact />
       <EntityPanel />

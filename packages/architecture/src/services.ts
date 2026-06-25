@@ -26,35 +26,34 @@ export const services: Service[] = [
     proofLabel: 'Atlas: 670 entities, 41 repos, queryable by engineers and agents',
   },
   {
+    id: 'data-modelling',
+    name: 'Data modelling & standardisation',
+    blurb:
+      'Turn inconsistent, messy data into a validated, queryable model with referential integrity.',
+    proof: 'iam',
+    proofLabel: 'iAm, a research platform I built and still run',
+  },
+  {
+    id: 'data-visualisation',
+    name: 'Data visualisation',
+    blurb: 'Make complex, multidimensional data legible.',
+    proof: 'dia-asset-mgmt',
+    proofLabel: 'Every figure on this site is generated from validated data',
+  },
+  {
+    id: 'data-pipelines',
+    name: 'Data pipelines & real-time platforms',
+    blurb: 'Move data from wherever it lives into something you can use, in batch or in real time.',
+    proof: 'quatt-cloud',
+    proofLabel: 'Real-time telemetry for 20,000+ connected devices at Quatt',
+  },
+  {
     id: 'agentic-automation',
     name: 'Agentic automation',
     blurb:
       'Agent systems that carry multi-step work end to end: research, annotation, transformation, and reporting.',
     proof: 'atlas',
     proofLabel: 'Built AI-assisted code-review and debugging tooling at Quatt',
-  },
-  {
-    id: 'research-data-standardisation',
-    name: 'Research-data standardisation',
-    blurb:
-      'Turn inconsistent study data into a validated, queryable model with referential integrity that holds up to analysis.',
-    proof: 'iam',
-    proofLabel: 'iAm: a graph-native research platform I founded and run',
-  },
-  {
-    id: 'multimodal-pipelines',
-    name: 'Multimodal pipelines',
-    blurb:
-      'Align first-person reports with physiological signals, audio, and video into one dataset you can actually analyse.',
-    proof: 'fmri-pipeline',
-    proofLabel: 'fMRI normalisation pipeline for a neuroscience lab at Carnegie Mellon',
-  },
-  {
-    id: 'data-visualisation',
-    name: 'Data visualisation',
-    blurb: 'Make complex, multidimensional data legible, without the dashboard clichés.',
-    proof: 'dia-asset-mgmt',
-    proofLabel: 'Every figure on this site is generated from validated data',
   },
 ]
 

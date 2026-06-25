@@ -5,15 +5,14 @@ export const profile = {
   title: 'AI & systems engineer',
   domain: 'noahclark.ing',
   url: 'https://noahclark.ing',
-  /** Hero headline: the offer, addressed to a buyer. Grounded in Atlas, which is queryable
-   *  by both engineers and AI agents. */
-  positioning: 'I build systems that people and AI agents can both operate.',
-  /** Hero subhead: what that means, and the failure mode it avoids. */
+  /** Hero line: a plain description of the work, not a slogan. */
+  positioning: 'I build data systems and the tools that run on them.',
+  /** Hero subhead: what I build and who for, plainly. No swagger, no overclaimed niche. */
   subhead:
-    'Knowledge graphs, agent pipelines, and the typed data infrastructure underneath them. Most teams point a model at data it cannot read. I model the domain first, so the agents do real work.',
+    'Knowledge graphs, data pipelines, data visualisation, and the infrastructure underneath them. Mostly for startups. Based in Amsterdam, available for independent and contract work.',
   /** Short about paragraph. Every clause traces to the résumé. */
   summary:
-    'I have built software since 2007, from US Air Force intelligence systems to a graph-native research platform I founded and run. I turn messy domains into typed, queryable graphs, then build the agents and pipelines on top of them.',
+    'I have written software since 2007, from intelligence and geospatial systems to a research platform for measuring experience that I built and still run. I tend to start with the data model, then build the tools and agents on top of it.',
   availability: 'Available for independent and contract work.',
   location: 'Amsterdam, Netherlands',
   email: 'noah@intelligent-learning.tech',
