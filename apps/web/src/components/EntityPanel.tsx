@@ -35,7 +35,7 @@ export function EntityPanel() {
             >
               ✕ close
             </button>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{resolved.kind}</p>
+            <p className="font-display text-base italic text-text-muted">{resolved.kind}</p>
             <h2 className="mt-1 font-display text-2xl font-semibold text-text">{resolved.label}</h2>
             <Body kind={resolved.kind} id={resolved.id} />
           </motion.aside>

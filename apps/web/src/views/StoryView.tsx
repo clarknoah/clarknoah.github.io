@@ -79,7 +79,7 @@ export function StoryView() {
   return (
     <main className="relative">
       <div className="mx-auto max-w-6xl px-6 pt-10">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">the path</p>
+        <p className="font-display text-base italic text-text-muted">The path</p>
         <h1 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-text md:text-4xl">
           Eighteen years, told as data.
         </h1>

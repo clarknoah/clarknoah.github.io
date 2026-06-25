@@ -24,8 +24,8 @@ export function PortfolioView() {
       <Services />
       <section className="mx-auto w-full max-w-6xl px-6 py-12">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">the work</p>
-          <h2 className="mt-3 font-display text-2xl tracking-tight text-text md:text-3xl">
+          <p className="font-display text-base italic text-text-muted">The work</p>
+          <h2 className="mt-2 font-display text-2xl tracking-tight text-text md:text-3xl">
             My career as a queryable graph
           </h2>
           <p className="mt-3 leading-relaxed text-text-muted">
@@ -50,7 +50,7 @@ export function PortfolioView() {
           </p>
         </div>
         <div className="mt-8 mb-6 flex items-center justify-between">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-faint">lens</p>
+          <p className="font-display text-base italic text-text-faint">Lens</p>
           <LensSwitch available={available} current={lens} />
         </div>
         {lens === 'graph' && (

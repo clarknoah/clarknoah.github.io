@@ -48,7 +48,7 @@ export function Projects() {
     <div className="space-y-12">
       {groups.map((g) => (
         <div key={g.label}>
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-text-faint">
+          <div className="font-display text-base italic text-text-muted">
             {g.meta ? `${g.label} · ${g.meta}` : g.label}
           </div>
           <dl className="mt-3 border-t border-border">
@@ -61,7 +61,7 @@ export function Projects() {
               >
                 <dt className="md:col-span-1">
                   <span className="font-display text-lg text-text group-hover:text-accent">{p.name}</span>
-                  <div className="mt-1 flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-text-faint">
+                  <div className="mt-1 flex flex-wrap items-center gap-2 font-mono text-[10px] tracking-wide text-text-faint">
                     <span className="rounded border border-border px-1.5 py-0.5">{p.kind}</span>
                     {roleYears(p) && <span>{roleYears(p)}</span>}
                     {p.url && <span className="text-accent">live ↗</span>}

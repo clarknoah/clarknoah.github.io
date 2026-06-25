@@ -31,10 +31,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
-            {profile.name} · {profile.title}
+          <p className="font-display text-base italic text-text-muted">
+            Independent {profile.title} · {profile.location.split(',')[0]}
           </p>
-          <h1 className="mt-5 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.06] tracking-tight text-text md:text-6xl">
+          <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.06] tracking-tight text-text md:text-6xl">
             {profile.positioning}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">{profile.subhead}</p>
@@ -71,18 +71,18 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <dl className="space-y-4 border-l border-border pl-6 font-mono text-sm">
+          <dl className="space-y-4 border-l border-border pl-6 text-base">
             <div>
-              <dt className="text-xs uppercase tracking-wider text-text-faint">available</dt>
-              <dd className="mt-1 text-text">Independent and contract work</dd>
+              <dt className="font-display italic text-text-faint">Available</dt>
+              <dd className="mt-0.5 text-text">Independent and contract work</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wider text-text-faint">based in</dt>
-              <dd className="mt-1 text-text">{profile.location}</dd>
+              <dt className="font-display italic text-text-faint">Based in</dt>
+              <dd className="mt-0.5 text-text">{profile.location}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wider text-text-faint">currently</dt>
-              <dd className="mt-1 space-y-0.5 text-text">
+              <dt className="font-display italic text-text-faint">Currently</dt>
+              <dd className="mt-0.5 space-y-0.5 text-text">
                 {currentRoles.map((r) => (
                   <div key={r.id}>
                     {r.title}, {dataset.orgs.find((o) => o.id === r.org)?.name}
@@ -102,7 +102,7 @@ export function Hero() {
 export function Services() {
   const { dispatch } = useStore()
   return (
-    <Section id="services" eyebrow="services" title="What I do">
+    <Section id="services" eyebrow="Services" title="What I do">
       <dl className="border-t border-border">
         {services.map((s) => {
           const proofProject = s.proof ? dataset.projects.find((p) => p.id === s.proof) : undefined
@@ -148,7 +148,7 @@ const FEATURED_STATS = [
 
 export function StatWall() {
   return (
-    <Section id="numbers" eyebrow="by the numbers" title="Scope, in figures">
+    <Section id="numbers" eyebrow="By the numbers" title="Scope, in figures">
       <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
         {FEATURED_STATS.map((s) => (
           <MotionDiv key={s.label} {...reveal}>
@@ -207,7 +207,7 @@ export function SelectedWork() {
     (p): p is NonNullable<typeof p> => p !== undefined,
   )
   return (
-    <Section id="work" eyebrow="selected work" title="Things built">
+    <Section id="work" eyebrow="Selected work" title="Things built">
       <dl className="border-t border-border">
         {projects.map((p) => (
           <MotionDiv

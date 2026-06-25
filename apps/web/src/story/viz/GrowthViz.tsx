@@ -86,9 +86,7 @@ export function GrowthViz({ active }: { role: unknown; active: boolean }) {
 
   return (
     <div ref={ref} className="w-full max-w-[520px]">
-      <div className="font-mono text-xs uppercase tracking-widest text-text-faint">
-        users scaled
-      </div>
+      <div className="font-display text-base italic text-text-muted">users scaled</div>
       <div className="mt-1 font-display text-6xl font-bold tracking-tight text-text tabular-nums md:text-7xl">
         {formatGB(n)}
       </div>

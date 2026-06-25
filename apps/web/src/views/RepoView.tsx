@@ -44,7 +44,7 @@ export function RepoView() {
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-10 font-mono text-sm">
-      <p className="text-xs uppercase tracking-[0.2em] text-accent">repo view</p>
+      <p className="font-display text-base italic text-text-muted">Repo view</p>
       <h1 className="mt-2 font-display text-3xl font-semibold text-text">packages/architecture</h1>
       <p className="mt-3 max-w-2xl text-text-muted">
         Every entry is a real, validated entity in the career graph: the same data the
