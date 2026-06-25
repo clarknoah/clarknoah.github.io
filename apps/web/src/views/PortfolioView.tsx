@@ -2,7 +2,7 @@ import type { Lens } from '@noahclark/console'
 import { lazy, Suspense } from 'react'
 import { EntityPanel } from '../components/EntityPanel'
 import { useMediaQuery } from '../hooks/useMediaQuery'
-import { Capabilities, Contact, Hero, Now, SelectedWork, StatWall } from '../sections'
+import { Capabilities, Contact, Hero, Now, SelectedWork, Services, StatWall } from '../sections'
 import { LensSwitch } from '../lenses/LensSwitch'
 import { Projects } from '../lenses/Projects'
 import { Timeline } from '../lenses/Timeline'
@@ -11,7 +11,7 @@ import { useStore } from '../store'
 const CareerGraph = lazy(() => import('../graph/CareerGraph').then((m) => ({ default: m.CareerGraph })))
 
 export function PortfolioView() {
-  const { state } = useStore()
+  const { state, dispatch } = useStore()
   const isMobile = useMediaQuery('(max-width: 768px)')
   const available: Lens[] = isMobile
     ? ['timeline', 'projects', 'capabilities']
@@ -21,9 +21,36 @@ export function PortfolioView() {
   return (
     <main>
       <Hero />
-      <section className="mx-auto w-full max-w-6xl px-6 py-8">
-        <div className="mb-6 flex items-center justify-between">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">career</p>
+      <Services />
+      <section className="mx-auto w-full max-w-6xl px-6 py-12">
+        <div className="max-w-2xl">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">the work</p>
+          <h2 className="mt-3 font-display text-2xl tracking-tight text-text md:text-3xl">
+            My career as a queryable graph
+          </h2>
+          <p className="mt-3 leading-relaxed text-text-muted">
+            This site is itself an example of the work: my career modelled as a typed, validated
+            knowledge graph, rendered several ways. The same data drives the{' '}
+            <button
+              type="button"
+              onClick={() => dispatch({ type: 'setView', view: 'repo' })}
+              className="text-accent underline-offset-2 hover:underline"
+            >
+              repo view
+            </button>{' '}
+            and the{' '}
+            <button
+              type="button"
+              onClick={() => dispatch({ type: 'setView', view: 'story' })}
+              className="text-accent underline-offset-2 hover:underline"
+            >
+              story
+            </button>
+            .
+          </p>
+        </div>
+        <div className="mt-8 mb-6 flex items-center justify-between">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-faint">lens</p>
           <LensSwitch available={available} current={lens} />
         </div>
         {lens === 'graph' && (

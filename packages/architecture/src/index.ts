@@ -21,3 +21,5 @@ export const dataset: Dataset = {
 export { orgs, roles, projects, skills, educationList, capabilities, threads }
 export { profile } from './profile'
 export type { Profile } from './profile'
+export { services } from './services'
+export type { Service, ServiceId } from './services'

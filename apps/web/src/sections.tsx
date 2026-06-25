@@ -1,6 +1,6 @@
 import { Section, Stat, Tag } from '@noahclark/ui'
 import { motion } from 'motion/react'
-import { dataset, index, profile, threadColor } from './lib'
+import { dataset, index, profile, services, threadColor } from './lib'
 import { useStore } from './store'
 
 const MotionDiv = motion.div
@@ -13,34 +13,52 @@ const reveal = {
 
 const currentRoles = dataset.roles.filter((r) => r.end === 'present')
 
+// Verified figures only (each traces to the résumé). Kept terse and faint under the headline.
+const HERO_FIGURES = [
+  { v: '1.2M', l: 'users scaled' },
+  { v: '20,000+', l: 'devices in production' },
+  { v: '670', l: 'entity graph, agent-queryable' },
+]
+
 export function Hero() {
   const { dispatch } = useStore()
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 pt-20 pb-12 md:pt-28">
-      <div className="grid items-end gap-10 lg:grid-cols-12">
+    <section className="mx-auto w-full max-w-6xl px-6 pt-20 pb-14 md:pt-28">
+      <div className="grid items-start gap-10 lg:grid-cols-12">
         <MotionDiv
           className="lg:col-span-8"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">{profile.title}</p>
-          <h1 className="mt-4 font-display text-5xl font-bold leading-[1.02] tracking-tight text-text md:text-7xl">
-            {profile.name}
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
+            {profile.name} · {profile.title}
+          </p>
+          <h1 className="mt-5 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.06] tracking-tight text-text md:text-6xl">
+            {profile.positioning}
           </h1>
-          <p className="mt-5 max-w-2xl font-display text-xl text-text md:text-2xl">{profile.tagline}</p>
-          <p className="mt-4 max-w-2xl leading-relaxed text-text-muted">{profile.summary}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">{profile.subhead}</p>
+
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
+            {HERO_FIGURES.map((f) => (
+              <div key={f.l} className="flex items-baseline gap-2">
+                <dt className="tabular text-text">{f.v}</dt>
+                <dd className="text-text-faint">{f.l}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
               href={`mailto:${profile.email}`}
               className="rounded-md bg-accent px-4 py-2 font-mono text-sm text-ink transition-opacity hover:opacity-90"
             >
-              get in touch
+              start a conversation
             </a>
             <button
               type="button"
               onClick={() => dispatch({ type: 'downloadResume' })}
-              className="rounded-md border border-border-strong px-4 py-2 font-mono text-sm text-text transition-colors hover:bg-surface"
+              className="font-mono text-sm text-text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
             >
               résumé ↗
             </button>
@@ -54,6 +72,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <dl className="space-y-4 border-l border-border pl-6 font-mono text-sm">
+            <div>
+              <dt className="text-xs uppercase tracking-wider text-text-faint">available</dt>
+              <dd className="mt-1 text-text">Independent and contract work</dd>
+            </div>
             <div>
               <dt className="text-xs uppercase tracking-wider text-text-faint">based in</dt>
               <dd className="mt-1 text-text">{profile.location}</dd>
@@ -72,6 +94,46 @@ export function Hero() {
         </MotionDiv>
       </div>
     </section>
+  )
+}
+
+// What someone can hire Noah to do. Editorial definition list, not a card grid: term left,
+// plain description plus a verifiable proof line right. Proof links open the entity panel.
+export function Services() {
+  const { dispatch } = useStore()
+  return (
+    <Section id="services" eyebrow="services" title="What I do">
+      <dl className="border-t border-border">
+        {services.map((s) => {
+          const proofProject = s.proof ? dataset.projects.find((p) => p.id === s.proof) : undefined
+          return (
+            <MotionDiv
+              key={s.id}
+              {...reveal}
+              className="grid gap-3 border-b border-border py-7 md:grid-cols-3 md:gap-8"
+            >
+              <dt className="font-display text-xl text-text md:col-span-1">{s.name}</dt>
+              <dd className="space-y-3 md:col-span-2">
+                <p className="leading-relaxed text-text-muted">{s.blurb}</p>
+                <p className="font-mono text-xs text-text-faint">
+                  {proofProject ? (
+                    <button
+                      type="button"
+                      onClick={() => dispatch({ type: 'openEntity', id: proofProject.id })}
+                      className="text-left underline-offset-2 hover:text-accent hover:underline"
+                    >
+                      {s.proofLabel}
+                    </button>
+                  ) : (
+                    s.proofLabel
+                  )}
+                </p>
+              </dd>
+            </MotionDiv>
+          )
+        })}
+      </dl>
+    </Section>
   )
 }
 
@@ -175,7 +237,7 @@ export function SelectedWork() {
 
 export function Now() {
   return (
-    <Section id="now" eyebrow="now" title="What I'm doing">
+    <Section id="now" title="What I'm doing">
       <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
         Founding <span className="text-text">iAm</span>, a graph-native platform for measuring
         subjective experience, and leading the cloud platform team at{' '}
@@ -188,8 +250,12 @@ export function Now() {
 
 export function Contact() {
   return (
-    <Section id="contact" eyebrow="contact" title="Get in touch">
-      <div className="flex flex-col gap-4">
+    <Section id="contact" title="Get in touch">
+      <div className="flex flex-col gap-5">
+        <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
+          {profile.availability} Tell me what you are trying to measure, model, or automate, and I
+          will tell you honestly whether I am the right person for it.
+        </p>
         <a href={`mailto:${profile.email}`} className="font-display text-2xl text-accent hover:underline">
           {profile.email}
         </a>

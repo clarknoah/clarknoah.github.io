@@ -5,7 +5,27 @@
 @source "../../../packages/ui/src";
 
 @layer base {
+  html {
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   body {
     font-family: var(--font-body);
   }
+  /* Headings carry the serif display cut and tighten as they grow. */
+  h1,
+  h2,
+  h3 {
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+  /* Numbers should not wobble: line up every figure the site renders. */
+  .tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 22%, transparent);
 }

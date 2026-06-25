@@ -1,12 +1,20 @@
-/** Personal facts: single source for the hero and contact sections. */
+/** Personal facts: single source for the hero, nav, and contact sections. */
 export const profile = {
   name: 'Noah Clark',
-  title: 'Agentic Systems Architect',
+  /** Short role descriptor (nav, boot screen, meta). */
+  title: 'AI & systems engineer',
   domain: 'noahclark.ing',
   url: 'https://noahclark.ing',
-  tagline: 'AI-native product engineering, built on knowledge graphs.',
+  /** Hero headline: the offer, addressed to a buyer. Grounded in Atlas, which is queryable
+   *  by both engineers and AI agents. */
+  positioning: 'I build systems that people and AI agents can both operate.',
+  /** Hero subhead: what that means, and the failure mode it avoids. */
+  subhead:
+    'Knowledge graphs, agent pipelines, and the typed data infrastructure underneath them. Most teams point a model at data it cannot read. I model the domain first, so the agents do real work.',
+  /** Short about paragraph. Every clause traces to the résumé. */
   summary:
-    'Engineer of 18 years, from US Air Force intelligence systems to a consciousness-measurement platform I founded. I turn messy domains into typed, queryable graphs, and build with AI agents wired into the real work: code review, debugging, and architecture an agent can read.',
+    'I have built software since 2007, from US Air Force intelligence systems to a graph-native research platform I founded and run. I turn messy domains into typed, queryable graphs, then build the agents and pipelines on top of them.',
+  availability: 'Available for independent and contract work.',
   location: 'Amsterdam, Netherlands',
   email: 'noah@intelligent-learning.tech',
   resumeUrl: '/resume.pdf',

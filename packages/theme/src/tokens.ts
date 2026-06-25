@@ -4,8 +4,10 @@
  * Two palettes (light default, dark) keyed off `[data-theme]`. JS reads `tokens`;
  * CSS/Tailwind read `tokens.generated.css`, derived by `tools/gen-theme`. Edit values HERE.
  *
- * Direction: refined-technical, warm — not the dark+teal dev-template look. Amber accent,
- * Hanken Grotesk + IBM Plex Mono (deliberately not the AI-default Inter/Space Grotesk).
+ * Direction: refined-technical, warm. Not the dark+teal dev-template look. Amber accent.
+ * Two voices: Newsreader (an editorial serif, the human voice) for prose and headings,
+ * IBM Plex Mono (the system voice) for labels, code, data, and UI chrome. Serif-for-voice
+ * is a deliberate move away from the neutral-grotesk look that now reads as a machine default.
  */
 
 export interface ColorPalette {
@@ -61,8 +63,9 @@ export const thread = {
 } as const
 
 export const font = {
-  display: "'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif",
-  body: "'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif",
+  // Newsreader: warm editorial serif with an optical-size axis (set font-optical-sizing: auto).
+  display: "'Newsreader', Georgia, 'Times New Roman', serif",
+  body: "'Newsreader', Georgia, 'Times New Roman', serif",
   mono: "'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace",
 }
 
