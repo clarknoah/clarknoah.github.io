@@ -61,6 +61,7 @@ export const projectSchema = z.object({
   year: z.string().optional(), // for standalone projects with no role to date them
   summary: z.string(),
   url: z.string().optional(),
+  image: z.string().optional(), // path to a screenshot of the live site, e.g. /work/<id>.webp
   highlights: z.array(z.string()).default([]),
   threads: z.array(threadId).default([]),
   skills: z.array(z.string()).default([]),

@@ -69,6 +69,7 @@ export const projects = [
     summary:
       'EdTech SaaS platform scaled from a few hundred users to 1.2M+ across 59 corporate partners.',
     url: 'https://workforceedge.com',
+    image: '/work/workforceedge.webp',
     threads: ['scale'],
     skills: ['typescript', 'apollo', 'graphql', 'postgresql', 'redis', 'react', 'aws'],
     capabilities: ['scaling-saas', 'platform-architecture'],
@@ -81,6 +82,7 @@ export const projects = [
     summary:
       'Graph-native SaaS platform for measuring and analysing subjective experience in real time. Unifies surveys and real-time reporting into one graph; cross-platform on web, iOS, and Android.',
     url: 'https://iamexplor.ing',
+    image: '/work/iam.webp',
     threads: ['consciousness', 'graph', 'ai-native'],
     skills: ['neo4j', 'typescript', 'apollo', 'graphql', 'react', 'capacitor', 'gcp', 'kubernetes'],
     capabilities: ['research-platforms', 'knowledge-graph-systems'],
@@ -115,6 +117,7 @@ export const projects = [
     summary:
       'Built the Interdisciplinary Conference on Psychedelic Research conference website (2022 and 2024 editions) for the OPEN Foundation.',
     url: 'https://icpr-conference.com',
+    image: '/work/icpr-conference.webp',
     skills: ['nextjs', 'react', 'typescript'],
   }),
   project({
@@ -123,6 +126,7 @@ export const projects = [
     kind: 'website',
     summary: 'Simple static website for a therapy practice.',
     url: 'https://myguidedgrowth.com',
+    image: '/work/myguidedgrowth.webp',
     skills: ['react', 'vite'],
   }),
   project({

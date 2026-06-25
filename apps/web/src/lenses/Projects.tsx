@@ -76,6 +76,22 @@ export function Projects() {
                       ))}
                     </div>
                   )}
+                  {p.image && (
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-3 block max-w-sm overflow-hidden rounded border border-border transition-colors hover:border-border-strong"
+                    >
+                      <img
+                        src={p.image}
+                        alt={`${p.name} website`}
+                        loading="lazy"
+                        className="block aspect-[16/10] w-full object-cover object-top"
+                      />
+                    </a>
+                  )}
                 </dd>
               </motion.div>
             ))}

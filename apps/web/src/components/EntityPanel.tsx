@@ -86,6 +86,21 @@ function Body({ kind, id }: { kind: string; id: string }) {
     const p = dataset.projects.find((x) => x.id === id) as Project
     return (
       <div className="mt-3 space-y-4">
+        {p.image && (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noreferrer"
+            className="block overflow-hidden rounded border border-border transition-colors hover:border-border-strong"
+          >
+            <img
+              src={p.image}
+              alt={`${p.name} website`}
+              loading="lazy"
+              className="block aspect-[16/10] w-full object-cover object-top"
+            />
+          </a>
+        )}
         <p className="text-sm text-text-muted">{p.summary}</p>
         {p.url && (
           <a href={p.url} target="_blank" rel="noreferrer" className="font-mono text-sm text-accent hover:underline">
