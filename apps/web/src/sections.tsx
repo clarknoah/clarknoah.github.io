@@ -32,7 +32,7 @@ export function Hero() {
             href={`mailto:${profile.email}`}
             className="text-accent underline-offset-4 hover:underline"
           >
-            Get in touch
+            Email me
           </a>
           <button
             type="button"
@@ -174,19 +174,6 @@ export function SelectedWork() {
           </MotionDiv>
         ))}
       </dl>
-    </Section>
-  )
-}
-
-export function Now() {
-  return (
-    <Section id="now" title="Now">
-      <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
-        I build and run <span className="text-text">iAm</span>, a research platform for measuring
-        experience, and I lead the cloud platform team at <span className="text-text">Quatt</span>.
-        Most of my work is building things end to end: the data model, the backend, and the tools
-        on top.
-      </p>
     </Section>
   )
 }

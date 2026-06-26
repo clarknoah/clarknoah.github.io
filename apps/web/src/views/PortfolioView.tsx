@@ -2,7 +2,7 @@ import type { Lens } from '@noahclark/console'
 import { lazy, Suspense } from 'react'
 import { EntityPanel } from '../components/EntityPanel'
 import { useMediaQuery } from '../hooks/useMediaQuery'
-import { Capabilities, Contact, Hero, Now, SelectedWork, Services } from '../sections'
+import { Capabilities, Contact, Hero, SelectedWork, Services } from '../sections'
 import { LensSwitch } from '../lenses/LensSwitch'
 import { Projects } from '../lenses/Projects'
 import { Timeline } from '../lenses/Timeline'
@@ -37,16 +37,8 @@ export function PortfolioView() {
               className="text-accent underline-offset-2 hover:underline"
             >
               repo view
-            </button>{' '}
-            and the{' '}
-            <button
-              type="button"
-              onClick={() => dispatch({ type: 'setView', view: 'story' })}
-              className="text-accent underline-offset-2 hover:underline"
-            >
-              story
             </button>
-            .
+            . Every figure on this page is generated from that validated data.
           </p>
         </div>
         <div className="mt-8 mb-6 flex items-center justify-between">
@@ -69,7 +61,6 @@ export function PortfolioView() {
         {lens === 'capabilities' && <Capabilities />}
       </section>
       <SelectedWork />
-      <Now />
       <Contact />
       <EntityPanel />
     </main>

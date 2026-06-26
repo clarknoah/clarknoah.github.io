@@ -47,7 +47,7 @@ const defs: Array<[string, string, SkillCategory]> = [
   ['mcp', 'MCP Protocol', 'ai'],
   // practice
   ['scrum', 'Scrum / Agile', 'practice'],
-  ['tdd', 'TDD', 'practice'],
+  ['test-automation', 'Test Automation', 'practice'],
   ['ci-cd', 'CI/CD', 'practice'],
   ['e2e-testing', 'E2E Testing', 'practice'],
 ]

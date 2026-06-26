@@ -32,7 +32,7 @@ export const capabilities = [
   capability({
     id: 'scaling-saas',
     name: 'Scaling SaaS platforms',
-    blurb: 'Taking products from a handful of users to millions across many enterprise partners.',
+    blurb: 'Taking products from a handful of users to over a million across many enterprise partners.',
     threads: ['scale'],
     evidence: ['sei', 'workforceedge'],
   }),
@@ -40,7 +40,7 @@ export const capabilities = [
     id: 'platform-architecture',
     name: 'Platform & systems architecture',
     blurb:
-      'Architecting systems across hardware, software, and data boundaries. 18 years, up to $1.1B-scale infrastructure strategy.',
+      'Architecting systems across hardware, software, and data boundaries. Since 2013, up to $1.1B-scale infrastructure strategy.',
     threads: ['intelligence', 'scale'],
     evidence: ['dia-architect', 'quatt', 'sei'],
   }),

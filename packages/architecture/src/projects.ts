@@ -18,7 +18,7 @@ export const projects = [
     kind: 'pipeline',
     role: 'cmu',
     summary:
-      'Automated MATLAB pipeline to sanitise, normalise, and analyse fMRI data for a neuroscience research lab.',
+      'Automated MATLAB pipeline to normalise and analyse fMRI data for a neuroscience research lab.',
     threads: ['consciousness'],
     skills: ['matlab'],
   }),
@@ -95,7 +95,7 @@ export const projects = [
     summary:
       'A typed knowledge graph modelling an engineering organisation (670 entities, 41 repos, 600+ device fields) with cross-language type generation, queryable by both engineers and AI agents.',
     threads: ['graph', 'ai-native', 'scale'],
-    skills: ['typescript', 'nx', 'neo4j', 'claude-code', 'mcp', 'openapi'],
+    skills: ['typescript', 'nx', 'claude-code', 'mcp', 'openapi'],
     capabilities: ['knowledge-graph-systems', 'ai-native-tooling'],
   }),
   project({

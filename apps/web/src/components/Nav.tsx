@@ -26,13 +26,6 @@ export function Nav() {
           </button>
           <button
             type="button"
-            onClick={() => dispatch({ type: 'setView', view: 'story' })}
-            className={cx('rounded px-1.5 py-1 md:px-2', state.view === 'story' ? 'text-accent' : 'text-text-muted')}
-          >
-            story
-          </button>
-          <button
-            type="button"
             onClick={() => dispatch({ type: 'setView', view: 'repo' })}
             className={cx('rounded px-1.5 py-1 md:px-2', state.view === 'repo' ? 'text-accent' : 'text-text-muted')}
           >

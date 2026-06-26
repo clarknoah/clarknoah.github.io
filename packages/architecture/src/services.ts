@@ -38,7 +38,7 @@ export const services: Service[] = [
     name: 'Data visualisation',
     blurb: 'Make complex, multidimensional data legible.',
     proof: 'dia-asset-mgmt',
-    proofLabel: 'Every figure on this site is generated from validated data',
+    proofLabel: 'DIA asset-management system, visualised as a graph with d3.js and cytoscape.js',
   },
   {
     id: 'data-pipelines',
@@ -51,8 +51,7 @@ export const services: Service[] = [
     id: 'agentic-automation',
     name: 'Agentic automation',
     blurb:
-      'Agent systems that carry multi-step work end to end: research, annotation, transformation, and reporting.',
-    proof: 'atlas',
+      'Agent-assisted tooling for multi-step engineering work in the development loop, like code review and debugging.',
     proofLabel: 'Built AI-assisted code-review and debugging tooling at Quatt',
   },
 ]

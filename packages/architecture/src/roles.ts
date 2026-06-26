@@ -15,7 +15,6 @@ export const roles = [
     summary:
       'Cyber intelligence analyst and physical security penetration tester. Tested the Air Force’s security posture and briefed personnel on cyber threats.',
     threads: ['intelligence'],
-    skills: ['python'],
   }),
   role({
     id: 'questor',
