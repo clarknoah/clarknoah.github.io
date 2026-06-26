@@ -28,12 +28,12 @@ export const commands: Command[] = [
   },
   {
     name: 'lens',
-    usage: 'lens <graph|timeline|projects|capabilities>',
+    usage: 'lens <timeline|projects|capabilities>',
     describe: 'Switch the portfolio lens.',
     run: (args) => {
       const l = args[0]
-      if (l !== 'timeline' && l !== 'capabilities' && l !== 'graph' && l !== 'projects')
-        return err('usage: lens <graph|timeline|projects|capabilities>')
+      if (l !== 'timeline' && l !== 'capabilities' && l !== 'projects')
+        return err('usage: lens <timeline|projects|capabilities>')
       return ok([line(`→ ${l}`, 'accent')], [{ type: 'setView', view: 'portfolio' }, { type: 'setLens', lens: l }])
     },
   },
@@ -50,11 +50,11 @@ export const commands: Command[] = [
         const { roles, projects } = ctx.index.usingSkill(id)
         return ok(
           [
-            line(`${skill.name} — ${roles.length} role(s), ${projects.length} project(s)`, 'accent'),
+            line(`${skill.name} · ${roles.length} role(s), ${projects.length} project(s)`, 'accent'),
             ...roles.map((r) => line(`  role     ${r.title}`)),
             ...projects.map((p) => line(`  project  ${p.name}`)),
           ],
-          [{ type: 'setView', view: 'portfolio' }, { type: 'setLens', lens: 'graph' }, { type: 'highlightSkill', id }],
+          [{ type: 'setView', view: 'portfolio' }, { type: 'setLens', lens: 'timeline' }, { type: 'highlightSkill', id }],
         )
       }
       if (sub === 'thread') {
@@ -64,10 +64,10 @@ export const commands: Command[] = [
         const { roles, projects } = ctx.index.inThread(thread.id)
         return ok(
           [
-            line(`${thread.label} — ${roles.length} role(s), ${projects.length} project(s)`, 'accent'),
+            line(`${thread.label} · ${roles.length} role(s), ${projects.length} project(s)`, 'accent'),
             line(`  ${thread.blurb}`, 'muted'),
           ],
-          [{ type: 'setView', view: 'portfolio' }, { type: 'setLens', lens: 'graph' }, { type: 'highlightThread', id }],
+          [{ type: 'setView', view: 'portfolio' }, { type: 'setLens', lens: 'timeline' }, { type: 'highlightThread', id }],
         )
       }
       return err('usage: query skill|thread <id>')
