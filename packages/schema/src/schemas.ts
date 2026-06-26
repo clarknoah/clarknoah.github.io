@@ -9,7 +9,7 @@
 import { z } from 'zod'
 
 export const THREAD_IDS = ['graph', 'consciousness', 'intelligence', 'scale', 'ai-native'] as const
-export const ROLE_KINDS = ['employment', 'military', 'founding', 'instruction', 'research'] as const
+export const ROLE_KINDS = ['employment', 'military', 'founding', 'instruction', 'research', 'volunteer'] as const
 export const SKILL_CATEGORIES = ['lang', 'db', 'infra', 'frontend', 'data', 'ai', 'practice'] as const
 export const SECTORS = ['defense', 'gov', 'academia', 'research', 'edtech', 'iot', 'own'] as const
 export const PROJECT_KINDS = ['platform', 'pipeline', 'system', 'tool', 'prototype', 'website'] as const

@@ -113,9 +113,10 @@ export const projects = [
     id: 'icpr-conference',
     name: 'ICPR Conference Website',
     kind: 'website',
-    year: '2022, 2024',
+    role: 'open-volunteer',
+    year: '2024',
     summary:
-      'Built the Interdisciplinary Conference on Psychedelic Research conference website (2022 and 2024 editions) for the OPEN Foundation.',
+      'Built the Interdisciplinary Conference on Psychedelic Research conference website (2024 edition) for the OPEN Foundation.',
     url: 'https://icpr-conference.com',
     image: '/work/icpr-conference.webp',
     skills: ['nextjs', 'react', 'typescript'],

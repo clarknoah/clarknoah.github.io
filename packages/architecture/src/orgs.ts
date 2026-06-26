@@ -12,4 +12,5 @@ export const orgs = [
   org({ id: 'org-sei', name: 'Strategic Education Inc.', sector: 'edtech', url: 'https://workforceedge.com' }),
   org({ id: 'org-iam', name: 'iAm', sector: 'own', url: 'https://iamexplor.ing' }),
   org({ id: 'org-quatt', name: 'Quatt', sector: 'iot', url: 'https://quatt.io' }),
+  org({ id: 'org-open', name: 'OPEN Foundation', sector: 'research' }),
 ]

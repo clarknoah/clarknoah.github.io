@@ -125,7 +125,7 @@ export function Capabilities() {
   )
 }
 
-const FEATURED_WORK = ['iam', 'atlas', 'workforceedge', 'dia-asset-mgmt']
+const FEATURED_WORK = ['iam', 'atlas', 'workforceedge', 'icpr-conference', 'myguidedgrowth', 'dia-asset-mgmt']
 
 // Editorial list, not tiles.
 export function SelectedWork() {
@@ -154,6 +154,22 @@ export function SelectedWork() {
                   <Tag key={s}>{s}</Tag>
                 ))}
               </div>
+              {p.image && (
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="block max-w-sm overflow-hidden rounded border border-border transition-colors hover:border-border-strong"
+                >
+                  <img
+                    src={p.image}
+                    alt={`${p.name} website`}
+                    loading="lazy"
+                    className="block aspect-[16/10] w-full object-cover object-top"
+                  />
+                </a>
+              )}
             </dd>
           </MotionDiv>
         ))}

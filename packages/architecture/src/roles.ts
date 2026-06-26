@@ -143,12 +143,12 @@ export const roles = [
     id: 'iam-founder',
     kind: 'founding',
     org: 'org-iam',
-    title: 'Founder',
+    title: 'Sole Developer',
     start: '2023-09',
     end: 'present',
     location: { label: 'Amsterdam, NL', lat: 52.3676, lng: 4.9041 },
     summary:
-      'Sole founder of iAm, a SaaS platform for measuring and analysing subjective experience in real time. Designed and shipped the whole stack: a graph-native data framework that unifies surveys and real-time reporting, delivered cross-platform.',
+      'I built and run iAm, a platform for measuring and analysing subjective experience in real time. Designed and shipped the whole stack solo: a graph-native data framework that unifies surveys and real-time reporting, delivered cross-platform.',
     highlights: [
       'Designed a flexible graph-based data framework on Neo4j for first-person experience data',
       'Developed a methodology for real-time subjective-experience measurement',
@@ -185,5 +185,23 @@ export const roles = [
     threads: ['scale', 'ai-native', 'graph'],
     projects: ['atlas', 'quatt-cloud'],
     skills: ['typescript', 'mqtt', 'aws', 'clickhouse', 'mysql', 'redis', 'kafka', 'nx', 'claude-code', 'mcp', 'openapi', 'asyncapi'],
+  }),
+  role({
+    id: 'open-volunteer',
+    kind: 'volunteer',
+    org: 'org-open',
+    title: 'Volunteer Engineer',
+    // start month is an estimate; correct if needed.
+    start: '2023-09',
+    end: 'present',
+    location: { label: 'Amsterdam, NL', lat: 52.3676, lng: 4.9041 },
+    summary:
+      'Volunteer web and engineering work for OPEN Foundation, the non-profit behind the ICPR conference.',
+    highlights: [
+      'Built the ICPR 2024 conference website',
+    ],
+    threads: ['consciousness'],
+    projects: ['icpr-conference'],
+    skills: ['nextjs', 'react', 'typescript'],
   }),
 ]
