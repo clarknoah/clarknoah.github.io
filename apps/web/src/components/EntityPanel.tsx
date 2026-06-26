@@ -107,6 +107,26 @@ function Body({ kind, id }: { kind: string; id: string }) {
             {p.url} ↗
           </a>
         )}
+        {p.images.length > 0 && (
+          <div className="grid grid-cols-2 gap-2">
+            {p.images.map((src) => (
+              <a
+                key={src}
+                href={src}
+                target="_blank"
+                rel="noreferrer"
+                className="block overflow-hidden rounded border border-border transition-colors hover:border-border-strong"
+              >
+                <img
+                  src={src}
+                  alt={`${p.name} screenshot`}
+                  loading="lazy"
+                  className="block aspect-[4/3] w-full object-cover object-top"
+                />
+              </a>
+            ))}
+          </div>
+        )}
         <SkillTags ids={p.skills} />
         <ThreadTags ids={p.threads} />
       </div>

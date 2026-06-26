@@ -83,6 +83,7 @@ export const projects = [
       'A graph-native SaaS platform I built for measuring and analysing subjective experience in real time. It pulls surveys and real-time reporting into one graph, and runs cross-platform on web, iOS, and Android.',
     url: 'https://iamexplor.ing',
     image: '/work/iam.webp',
+    images: ['/work/iam-research.webp', '/work/iam-session.webp', '/work/iam-graph.webp'],
     threads: ['consciousness', 'graph', 'ai-native'],
     skills: ['neo4j', 'typescript', 'apollo', 'graphql', 'react', 'capacitor', 'gcp', 'kubernetes'],
     capabilities: ['research-platforms', 'knowledge-graph-systems'],

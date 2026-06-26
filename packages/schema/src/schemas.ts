@@ -62,6 +62,7 @@ export const projectSchema = z.object({
   summary: z.string(),
   url: z.string().optional(),
   image: z.string().optional(), // path to a screenshot of the live site, e.g. /work/<id>.webp
+  images: z.array(z.string()).default([]), // extra screenshots, shown as a gallery in the detail panel
   highlights: z.array(z.string()).default([]),
   threads: z.array(threadId).default([]),
   skills: z.array(z.string()).default([]),
