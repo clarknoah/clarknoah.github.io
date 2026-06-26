@@ -23,7 +23,7 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <h1 className="font-display text-3xl font-medium leading-[1.15] tracking-tight text-text md:text-[2.6rem]">
+        <h1 className="max-w-3xl font-display text-2xl font-medium leading-[1.25] tracking-tight text-text md:text-[2rem]">
           {profile.positioning}
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-text-muted">{profile.subhead}</p>

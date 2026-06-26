@@ -4,7 +4,8 @@
  * Two palettes (light default, dark) keyed off `[data-theme]`. JS reads `tokens`;
  * CSS/Tailwind read `tokens.generated.css`, derived by `tools/gen-theme`. Edit values HERE.
  *
- * Direction: refined-technical, warm. Not the dark+teal dev-template look. Amber accent.
+ * Direction: refined-technical, cool. A blueprint palette: cool near-white paper, ink text,
+ * and a deep architect's blue accent (deliberately not the warm-cream/amber look).
  * Two voices: Newsreader (an editorial serif, the human voice) for prose and headings,
  * IBM Plex Mono (the system voice) for labels, code, data, and UI chrome. Serif-for-voice
  * is a deliberate move away from the neutral-grotesk look that now reads as a machine default.
@@ -26,40 +27,40 @@ export interface ColorPalette {
 
 export const palettes: { light: ColorPalette; dark: ColorPalette } = {
   light: {
-    ink: '#f6f3ec',
-    surface: '#fdfbf6',
-    surfaceRaised: '#f0eadd',
-    border: '#e4ddce',
-    borderStrong: '#d0c7b4',
-    text: '#211d17',
-    textMuted: '#6c6457',
-    textFaint: '#9b9285',
-    accent: '#ad6a14', // amber, dark enough for AA on warm ivory
-    accentDim: '#caa15e',
-    danger: '#b8432a',
+    ink: '#f6f7f9', // cool near-white paper
+    surface: '#fcfcfe',
+    surfaceRaised: '#eef0f4',
+    border: '#e1e4ea',
+    borderStrong: '#c9cfd9',
+    text: '#14181f', // near-black ink, slightly cool
+    textMuted: '#59626f',
+    textFaint: '#98a0ad',
+    accent: '#27457d', // deep architect's blue, ~8:1 on the cool paper
+    accentDim: '#7790b8',
+    danger: '#b23b3b',
   },
   dark: {
-    ink: '#15130f',
-    surface: '#1d1a14',
-    surfaceRaised: '#26221a',
-    border: '#312c22',
-    borderStrong: '#433d30',
-    text: '#ece5d7',
-    textMuted: '#a59c8b',
-    textFaint: '#6f685a',
-    accent: '#e0a23b',
-    accentDim: '#8a6a2e',
-    danger: '#e08a5c',
+    ink: '#11151c',
+    surface: '#161b24',
+    surfaceRaised: '#1e2531',
+    border: '#2a3342',
+    borderStrong: '#3b4658',
+    text: '#e6e9ef',
+    textMuted: '#9aa3b2',
+    textFaint: '#626c7d',
+    accent: '#6f9ae0',
+    accentDim: '#3f5b86',
+    danger: '#e08a7c',
   },
 }
 
-/** Thread hues — tuned to read on both palettes. Keys match ThreadId in @noahclark/schema. */
+/** Thread hues — a cohesive cool set for the blueprint palette. Keys match ThreadId. */
 export const thread = {
-  graph: '#2f7dc4',
-  consciousness: '#8157d6',
-  intelligence: '#c95f33',
-  scale: '#3a9663',
-  'ai-native': '#b5791f',
+  graph: '#3a6ea0',
+  consciousness: '#7a5cae',
+  intelligence: '#5a6b85',
+  scale: '#3f8060',
+  'ai-native': '#2a8f8f',
 } as const
 
 export const font = {
