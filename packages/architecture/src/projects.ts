@@ -7,7 +7,7 @@ export const projects = [
     kind: 'system',
     role: 'dia-architect',
     summary:
-      'Architected and led the build of the DIA’s IT asset management system, modelling assets as a graph.',
+      'I architected and led the build of the DIA’s IT asset management system, modelling its assets as a graph.',
     threads: ['intelligence', 'graph'],
     skills: ['openstack', 'angular', 'php', 'neo4j', 'd3', 'cytoscape'],
     capabilities: ['knowledge-graph-systems', 'platform-architecture'],
@@ -18,7 +18,7 @@ export const projects = [
     kind: 'pipeline',
     role: 'cmu',
     summary:
-      'Automated MATLAB pipeline to normalise and analyse fMRI data for a neuroscience research lab.',
+      'I built an automated MATLAB pipeline to normalise and analyse fMRI data for a neuroscience research lab.',
     threads: ['consciousness'],
     skills: ['matlab'],
   }),
@@ -28,7 +28,7 @@ export const projects = [
     kind: 'pipeline',
     role: 'thermopylae-geo',
     summary:
-      'Node.js automation for compressing and decompressing commercial imagery assets, removing ~400 hours of manual work.',
+      'A Node.js tool that compressed and decompressed commercial imagery assets, removing ~400 hours of manual work.',
     skills: ['javascript'],
   }),
   project({
@@ -45,7 +45,7 @@ export const projects = [
     kind: 'platform',
     role: 'ga-instructor',
     summary:
-      'Learning platform using spaced repetition over a hierarchical knowledge-graph data structure to improve student outcomes.',
+      'A learning platform that ran spaced repetition over a hierarchical knowledge-graph data structure to improve student outcomes.',
     threads: ['graph'],
     skills: ['neo4j', 'javascript', 'react'],
     capabilities: ['knowledge-graph-systems'],
@@ -56,7 +56,7 @@ export const projects = [
     kind: 'prototype',
     role: 'nderf',
     summary:
-      'Prototype system architecture and API platform for the Near Death Experience Research Foundation’s data and collection workflow.',
+      'A prototype platform I built for the Near Death Experience Research Foundation, handling their data and collection workflow from the system architecture up to the API.',
     threads: ['consciousness'],
     skills: ['javascript', 'postgresql', 'heroku'],
     capabilities: ['research-platforms'],
@@ -67,7 +67,7 @@ export const projects = [
     kind: 'platform',
     role: 'sei',
     summary:
-      'EdTech SaaS platform scaled from a few hundred users to 1.2M+ across 59 corporate partners.',
+      'An EdTech SaaS platform we scaled from a few hundred users to 1.2M+ across 59 corporate partners.',
     url: 'https://workforceedge.com',
     image: '/work/workforceedge.webp',
     threads: ['scale'],
@@ -80,7 +80,7 @@ export const projects = [
     kind: 'platform',
     role: 'iam-founder',
     summary:
-      'Graph-native SaaS platform for measuring and analysing subjective experience in real time. Unifies surveys and real-time reporting into one graph; cross-platform on web, iOS, and Android.',
+      'A graph-native SaaS platform I built for measuring and analysing subjective experience in real time. It pulls surveys and real-time reporting into one graph, and runs cross-platform on web, iOS, and Android.',
     url: 'https://iamexplor.ing',
     image: '/work/iam.webp',
     threads: ['consciousness', 'graph', 'ai-native'],
@@ -116,7 +116,7 @@ export const projects = [
     role: 'open-volunteer',
     year: '2024',
     summary:
-      'Built the Interdisciplinary Conference on Psychedelic Research conference website (2024 edition) for the OPEN Foundation.',
+      'I built the 2024 Interdisciplinary Conference on Psychedelic Research website for the OPEN Foundation.',
     url: 'https://icpr-conference.com',
     image: '/work/icpr-conference.webp',
     skills: ['nextjs', 'react', 'typescript'],

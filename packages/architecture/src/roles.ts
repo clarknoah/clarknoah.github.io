@@ -13,7 +13,7 @@ export const roles = [
     start: '2007-09',
     end: '2011-07',
     summary:
-      'Cyber intelligence analyst and physical security penetration tester. Tested the Air Force’s security posture and briefed personnel on cyber threats.',
+      'Cyber intelligence analyst and physical security penetration tester. My job was to find the holes in the Air Force’s security posture and brief personnel on cyber threats.',
     threads: ['intelligence'],
   }),
   role({
@@ -25,7 +25,7 @@ export const roles = [
     end: '2013-05',
     location: { label: 'Washington, DC', lat: 38.9072, lng: -77.0369 },
     summary:
-      'Consulted on IT consolidation across the US Intelligence Community, building roadmaps with senior leadership to reduce duplicative IT footprint.',
+      'Consulted on IT consolidation across the US Intelligence Community, drawing up roadmaps with senior leadership to cut a duplicative IT footprint.',
     threads: ['intelligence'],
   }),
   role({
@@ -37,9 +37,9 @@ export const roles = [
     end: '2015-08',
     location: { label: 'Washington, DC', lat: 38.9072, lng: -77.0369 },
     summary:
-      'At DMI / Thermopylae, set strategy for consolidating the Defense Intelligence Agency’s IT infrastructure onto centralised cloud, and served as architect and lead engineer of the DIA’s IT asset management system.',
+      'At DMI / Thermopylae, I set the strategy for consolidating the Defense Intelligence Agency’s IT infrastructure onto centralised cloud, and was the architect and lead engineer on the DIA’s IT asset management system.',
     highlights: [
-      'Developed the strategy and execution plan for consolidating a $1.1B IT infrastructure onto centralised cloud',
+      'Wrote the strategy and execution plan for consolidating a $1.1B IT infrastructure onto centralised cloud',
       'Architected and led development of the DIA’s IT asset management system',
       'Modelled assets as a graph (Neo4j, d3.js, cytoscape.js): the first knowledge-graph system in a 13-year through-line',
     ],
@@ -57,7 +57,7 @@ export const roles = [
     end: '2017-05',
     location: { label: 'Pittsburgh, PA', lat: 40.4406, lng: -79.9959 },
     summary:
-      'Worked with the principal investigator of a neuroscience lab, building an automated MATLAB pipeline for normalising and analysing fMRI data. The start of a decade working at the intersection of software and first-person experience.',
+      'I worked with the principal investigator of a neuroscience lab, building an automated MATLAB pipeline to normalise and analyse fMRI data. The start of a decade at the boundary of software and first-person experience.',
     highlights: ['Built an automated MATLAB pipeline to normalise and analyse fMRI data'],
     threads: ['consciousness'],
     projects: ['fmri-pipeline'],
@@ -72,7 +72,7 @@ export const roles = [
     end: '2020-01',
     location: { label: 'Arlington, VA', lat: 38.8816, lng: -77.091 },
     summary:
-      'Supported global commercial imagery collection and automated the collection pipeline.',
+      'I supported global commercial imagery collection and automated the pipeline behind it.',
     highlights: [
       'Automated imagery compression/decompression in Node.js, removing ~400 hours of manual labour',
     ],
@@ -90,7 +90,7 @@ export const roles = [
     end: '2020-12',
     location: { label: 'Washington, DC', lat: 38.9072, lng: -77.0369 },
     summary:
-      'Taught and maintained the 500-hour full-stack engineering immersive, and built internal tooling, including a learning platform structured as a hierarchical knowledge graph.',
+      'I taught and maintained the 500-hour full-stack engineering immersive, and built internal tooling, including a learning platform structured as a hierarchical knowledge graph.',
     highlights: [
       'Taught the full-stack immersive: Git, HTML/CSS/JS, Python, React, Mongo, PostgreSQL, Django, Node/Express',
       'Built an automated grading application in Node.js for the DC campus',
@@ -109,7 +109,7 @@ export const roles = [
     end: '2021-05',
     location: { label: 'Houma, LA', lat: 29.5958, lng: -90.7195 },
     summary:
-      'Designed the system architecture and a prototype API platform for the Near Death Experience Research Foundation’s data and collection workflow.',
+      'I designed the system architecture and a prototype API platform for the Near Death Experience Research Foundation’s data and collection workflow.',
     threads: ['consciousness'],
     projects: ['nderf-platform'],
     skills: ['javascript', 'postgresql', 'react', 'heroku'],
@@ -123,7 +123,7 @@ export const roles = [
     end: '2023-09',
     location: { label: 'Herndon, VA', lat: 38.9696, lng: -77.3861 },
     summary:
-      'Engineering manager and platform subject-matter expert for an EdTech SaaS startup. Owned architecture, managed the team, and scaled the product from a few hundred users to over a million.',
+      'Engineering manager and platform subject-matter expert for an EdTech SaaS startup. I owned the architecture and ran the team while the product grew from a few hundred users to over a million.',
     highlights: [
       'Scaled the platform from a few hundred users and two clients to 1.2M+ users and 59 corporate partners',
       'Managed four engineers and three QA specialists',

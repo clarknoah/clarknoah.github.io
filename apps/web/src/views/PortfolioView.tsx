@@ -26,10 +26,10 @@ export function PortfolioView() {
         <div className="max-w-2xl">
           <p className="font-display text-base italic text-text-muted">The work</p>
           <h2 className="mt-2 font-display text-2xl tracking-tight text-text md:text-3xl">
-            My career as a queryable graph
+            My career as a graph you can query
           </h2>
           <p className="mt-3 leading-relaxed text-text-muted">
-            This site is itself an example of the work: my career modelled as a typed, validated
+            This site is the work pointed back at me: my career modelled as a typed, validated
             knowledge graph, rendered several ways. The same data drives the{' '}
             <button
               type="button"

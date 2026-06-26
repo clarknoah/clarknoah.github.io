@@ -9,7 +9,7 @@ export const capabilities = [
     id: 'knowledge-graph-systems',
     name: 'Knowledge-graph systems',
     blurb:
-      'Designing typed graph data models (Neo4j) that stay queryable and coherent as they grow.',
+      'Designing typed graph data models in Neo4j that stay queryable and coherent as the data piles up.',
     threads: ['graph'],
     evidence: ['dia-asset-mgmt', 'ga-learning-platform', 'iam', 'atlas'],
   }),
@@ -25,7 +25,7 @@ export const capabilities = [
     id: 'realtime-telemetry',
     name: 'Real-time telemetry at scale',
     blurb:
-      'Telemetry pipelines for fleets of distributed devices: ingestion, processing, and live control.',
+      'Telemetry pipelines for fleets of distributed devices: pulling the signals in and processing them, then pushing control back out while the hardware runs.',
     threads: ['scale'],
     evidence: ['quatt'],
   }),
@@ -40,7 +40,7 @@ export const capabilities = [
     id: 'platform-architecture',
     name: 'Platform & systems architecture',
     blurb:
-      'Architecting systems across hardware, software, and data boundaries. Since 2013, up to $1.1B-scale infrastructure strategy.',
+      'Architecting systems that reach from the physical hardware up through the software and data. Since 2013, up to $1.1B-scale infrastructure strategy.',
     threads: ['intelligence', 'scale'],
     evidence: ['dia-architect', 'quatt', 'sei'],
   }),
@@ -48,7 +48,7 @@ export const capabilities = [
     id: 'research-platforms',
     name: 'Research data platforms',
     blurb:
-      'Building first-person and scientific measurement platforms: structured capture, real-time reporting, analysis.',
+      'Building measurement platforms for first-person and scientific data: structured capture and real-time reporting at one end, the analysis at the other.',
     threads: ['consciousness', 'graph'],
     evidence: ['cmu', 'nderf-platform', 'iam'],
   }),

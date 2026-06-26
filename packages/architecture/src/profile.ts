@@ -6,7 +6,7 @@ export const profile = {
   domain: 'noahclark.ing',
   url: 'https://noahclark.ing',
   /** Hero line: a plain description of the work, not a slogan. */
-  positioning: 'I build data systems and the tools that run on them.',
+  positioning: 'I build data systems and the tools and agents that run on them.',
   /** Hero subhead: what I build and who for, plainly. No swagger, no overclaimed niche. */
   subhead:
     'Knowledge graphs, data pipelines, data visualisation, and the infrastructure underneath them. Mostly for startups. Based in Amsterdam, available for independent and contract work.',

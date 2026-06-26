@@ -29,7 +29,7 @@ export const services: Service[] = [
     id: 'data-modelling',
     name: 'Data modelling & standardisation',
     blurb:
-      'Turn inconsistent, messy data into a validated, queryable model with referential integrity.',
+      'Take messy data that contradicts itself and shape it into a validated model you can query, with referential integrity.',
     proof: 'iam',
     proofLabel: 'iAm, a research platform I built and still run',
   },
@@ -51,7 +51,7 @@ export const services: Service[] = [
     id: 'agentic-automation',
     name: 'Agentic automation',
     blurb:
-      'Agent-assisted tooling for multi-step engineering work in the development loop, like code review and debugging.',
+      'Agent-assisted tooling for multi-step engineering work inside your development loop, like code review and debugging.',
     proofLabel: 'Built AI-assisted code-review and debugging tooling at Quatt',
   },
 ]

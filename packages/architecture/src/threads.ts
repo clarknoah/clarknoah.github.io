@@ -16,7 +16,7 @@ export const threads = [
     id: 'consciousness',
     label: 'Consciousness & Neurophenomenology',
     blurb:
-      'A decade of work at the intersection of software and first-person experience, from fMRI pipelines to iAm.',
+      'A decade spent where software meets first-person experience, from fMRI pipelines to iAm.',
     evidence: ['cmu', 'fmri-pipeline', 'nderf', 'nderf-platform', 'iam-founder', 'iam'],
   }),
   thread({

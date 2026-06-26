@@ -184,7 +184,7 @@ export function Contact() {
       <div className="flex flex-col gap-5">
         <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
           {profile.availability} Tell me what you are trying to measure, model, or automate, and I
-          will tell you honestly whether I am the right person for it.
+          will tell you honestly whether I am the right person for it, even if the answer is no.
         </p>
         <a href={`mailto:${profile.email}`} className="font-display text-2xl text-accent hover:underline">
           {profile.email}
