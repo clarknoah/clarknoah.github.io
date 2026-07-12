@@ -13,6 +13,8 @@ import {
   type Pt,
   type Snapshot,
   TOOLS,
+  TOOL_H,
+  TOOL_W,
   bowPoint,
   fmtShort,
   fmtSim,
@@ -23,7 +25,8 @@ import {
 export type Mode = 'before' | 'pivot' | 'after'
 
 const PIVOT_MS = 3000
-const AGENT_R = 124
+// Orbit outside the lattice tags (the widest sits ~148 from centre) but inside the ring.
+const AGENT_R = 175
 
 const clamp01 = (v: number): number => Math.max(0, Math.min(1, v))
 const ramp = (v: number, a: number, b: number): number => clamp01((v - a) / (b - a))
@@ -167,8 +170,8 @@ export function createReshapeEngine(root: SVGSVGElement): Handles {
         return
       }
       const e = easeInOut(u)
-      el.setAttribute('cx', String(lerp(tool.x, CENTER.x, e)))
-      el.setAttribute('cy', String(lerp(tool.y + 12, CENTER.y, e)))
+      el.setAttribute('cx', String(lerp(tool.x + TOOL_W / 2, CENTER.x, e)))
+      el.setAttribute('cy', String(lerp(tool.y + TOOL_H / 2, CENTER.y, e)))
       setO(el, Math.sin(Math.PI * u) * 0.9)
     })
     lnodeEls.forEach((el, i) => {
@@ -228,14 +231,14 @@ export function createReshapeEngine(root: SVGSVGElement): Handles {
     }
     const d = snap.dwell
     const flipped = d.at.x > 660
-    dwellEl?.setAttribute('x', String(d.at.x + (flipped ? -16 : 16)))
-    dwellEl?.setAttribute('y', String(d.at.y - 14))
+    dwellEl?.setAttribute('x', String(d.at.x + (flipped ? -22 : 22)))
+    dwellEl?.setAttribute('y', String(d.at.y - 20))
     dwellEl?.setAttribute('text-anchor', flipped ? 'end' : 'start')
     setText(dwellEl, `${d.label} · ${fmtShort(d.simElapsed)}`)
     setO(dwellEl, o)
     haloEl?.setAttribute('cx', String(d.at.x))
     haloEl?.setAttribute('cy', String(d.at.y))
-    haloEl?.setAttribute('r', String(10 + 2.5 * Math.sin(now / 260)))
+    haloEl?.setAttribute('r', String(15 + 3 * Math.sin(now / 260)))
     setO(haloEl, 0.35 * o)
   }
 
@@ -301,15 +304,15 @@ export function createReshapeEngine(root: SVGSVGElement): Handles {
       if (a && rippleA) {
         rippleA.setAttribute('x1', String(from.x))
         rippleA.setAttribute('y1', String(from.y))
-        rippleA.setAttribute('x2', String(a.x + 20))
-        rippleA.setAttribute('y2', String(a.y + 12))
+        rippleA.setAttribute('x2', String(a.x + TOOL_W / 2))
+        rippleA.setAttribute('y2', String(a.y + TOOL_H / 2))
         setO(rippleA, 0.5 * Math.min(1, snap.p * 4) * o)
       }
       if (b && rippleB) {
         rippleB.setAttribute('x1', String(from.x))
         rippleB.setAttribute('y1', String(from.y))
-        rippleB.setAttribute('x2', String(b.x + 20))
-        rippleB.setAttribute('y2', String(b.y + 12))
+        rippleB.setAttribute('x2', String(b.x + TOOL_W / 2))
+        rippleB.setAttribute('y2', String(b.y + TOOL_H / 2))
         setO(rippleB, 0.5 * Math.min(1, snap.p * 4) * o)
       }
       if (rippleRes) {

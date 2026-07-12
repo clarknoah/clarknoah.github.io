@@ -130,11 +130,15 @@ export interface Tool {
   y: number
 }
 
+/** Tool glyph box size; the engine derives ripple targets and fragment origins from it. */
+export const TOOL_W = 56
+export const TOOL_H = 36
+
 export const TOOLS: Tool[] = [
   { id: 'slite', label: 'slite', x: 250, y: 208 },
-  { id: 'sheets', label: 'sheets', x: 668, y: 208 },
-  { id: 'slack', label: 'slack', x: 318, y: 348 },
-  { id: 'notion', label: 'notion', x: 585, y: 348 },
+  { id: 'sheets', label: 'sheets', x: 656, y: 196 },
+  { id: 'slack', label: 'slack', x: 318, y: 332 },
+  { id: 'notion', label: 'notion', x: 585, y: 326 },
   { id: 'email', label: 'email', x: 460, y: 464 },
 ]
 
@@ -158,7 +162,7 @@ const lnode = (id: string, label: string, x: number, y: number): LatticeNode => 
   label,
   x,
   y,
-  w: 14 + label.length * 4.8,
+  w: 20 + label.length * 7,
 })
 
 export const LATTICE_NODES: LatticeNode[] = [

@@ -9,6 +9,8 @@ import {
   LATTICE_EDGES,
   LATTICE_NODES,
   TOOLS,
+  TOOL_H,
+  TOOL_W,
   TRACES,
   TREE_EDGES,
   W,
@@ -90,7 +92,7 @@ export function ReshapePage() {
 
   return (
     <div className="min-h-screen">
-      <header className="mx-auto w-full max-w-6xl px-6 pt-12 pb-2">
+      <header className="mx-auto w-full max-w-[1400px] px-6 pt-12 pb-2">
         <a
           href="/"
           className="font-display text-base italic text-text-faint transition-colors hover:text-accent"
@@ -107,7 +109,7 @@ export function ReshapePage() {
         </p>
       </header>
 
-      <div className="mx-auto w-full max-w-6xl px-6 pb-28 lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
+      <div className="mx-auto w-full max-w-[1400px] px-6 pb-28 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10">
         <div className="sticky top-0 z-10 self-start bg-ink py-3 lg:top-6">
           <div className="overflow-x-auto">
             <Canvas ref={svgRef} />
@@ -238,8 +240,8 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
               key={`lel-${e.from}-${e.to}`}
               className="rp-ledge-label"
               x={(a.x + b.x) / 2 + 6}
-              y={(a.y + b.y) / 2 - 4}
-              fontSize={6.5}
+              y={(a.y + b.y) / 2 - 5}
+              fontSize={9.5}
               fontFamily="var(--font-mono, monospace)"
               fill="var(--color-text-faint)"
               style={{ opacity: 0 }}
@@ -260,18 +262,18 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
           >
             <rect
               x={-n.w / 2}
-              y={-9}
+              y={-13}
               width={n.w}
-              height={18}
+              height={26}
               rx={3}
               fill="var(--color-surface)"
               stroke="var(--color-border-strong)"
               strokeWidth={1}
             />
             <text
-              y={2.5}
+              y={4}
               textAnchor="middle"
-              fontSize={7.5}
+              fontSize={11}
               fontFamily="var(--font-mono, monospace)"
               fill="var(--color-text-muted)"
             >
@@ -288,42 +290,42 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
             <rect
               x={t.x}
               y={t.y}
-              width={40}
-              height={26}
+              width={TOOL_W}
+              height={TOOL_H}
               rx={3}
               fill="var(--color-surface)"
               stroke="var(--color-border-strong)"
               strokeWidth={1}
             />
             <line
-              x1={t.x + 7}
-              y1={t.y + 8}
-              x2={t.x + 33}
-              y2={t.y + 8}
+              x1={t.x + 10}
+              y1={t.y + 10}
+              x2={t.x + 46}
+              y2={t.y + 10}
               stroke="var(--color-border)"
               strokeWidth={1}
             />
             <line
-              x1={t.x + 7}
-              y1={t.y + 13}
-              x2={t.x + 27}
-              y2={t.y + 13}
+              x1={t.x + 10}
+              y1={t.y + 17}
+              x2={t.x + 38}
+              y2={t.y + 17}
               stroke="var(--color-border)"
               strokeWidth={1}
             />
             <line
-              x1={t.x + 7}
-              y1={t.y + 18}
-              x2={t.x + 31}
-              y2={t.y + 18}
+              x1={t.x + 10}
+              y1={t.y + 24}
+              x2={t.x + 43}
+              y2={t.y + 24}
               stroke="var(--color-border)"
               strokeWidth={1}
             />
             <text
-              x={t.x + 20}
-              y={t.y + 37}
+              x={t.x + TOOL_W / 2}
+              y={t.y + TOOL_H + 13}
               textAnchor="middle"
-              fontSize={7.5}
+              fontSize={10}
               fontFamily="var(--font-mono, monospace)"
               fill="var(--color-text-faint)"
             >
@@ -337,9 +339,9 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
               key={`frag-${t.id}-${i}`}
               className="rp-frag"
               data-from={t.id}
-              cx={t.x + 20}
-              cy={t.y + 12}
-              r={1.8}
+              cx={t.x + TOOL_W / 2}
+              cy={t.y + TOOL_H / 2}
+              r={2.5}
               fill="var(--color-accent)"
               style={{ opacity: 0 }}
             />
@@ -354,10 +356,10 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
             key={`agent-${i}`}
             className="rp-agent"
             data-i={i}
-            x={-4.5}
-            y={-4.5}
-            width={9}
-            height={9}
+            x={-6.5}
+            y={-6.5}
+            width={13}
+            height={13}
             fill="var(--color-surface)"
             stroke="var(--color-accent)"
             strokeWidth={1.2}
@@ -376,15 +378,15 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
             transform={`translate(${h.tree.x} ${h.tree.y})`}
           >
             <circle
-              r={10}
+              r={15}
               fill="var(--color-surface)"
               stroke="var(--color-border-strong)"
               strokeWidth={1}
             />
             <text
-              y={2.5}
+              y={3.5}
               textAnchor="middle"
-              fontSize={7.5}
+              fontSize={10.5}
               fontFamily="var(--font-display, serif)"
               fill="var(--color-text-muted)"
             >
@@ -393,9 +395,9 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
             {h.role && (
               <text
                 className="rp-role"
-                y={22}
+                y={28}
                 textAnchor="middle"
-                fontSize={7}
+                fontSize={9.5}
                 fontFamily="var(--font-mono, monospace)"
                 fill="var(--color-text-faint)"
               >
@@ -424,7 +426,7 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
       <text
         id="rp-ripple-res"
         textAnchor="end"
-        fontSize={8}
+        fontSize={11}
         fontFamily="var(--font-mono, monospace)"
         fill="var(--color-text-muted)"
         style={{ opacity: 0 }}
@@ -437,7 +439,7 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
         <circle
           key={`micro-${i}`}
           className="rp-micro"
-          r={2}
+          r={3}
           fill="var(--color-accent)"
           style={{ opacity: 0 }}
         />
@@ -446,16 +448,16 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
       {/* The question in flight. */}
       <circle
         id="rp-halo"
-        r={10}
+        r={15}
         fill="none"
         stroke="var(--color-accent)"
         strokeWidth={1}
         style={{ opacity: 0 }}
       />
-      <circle id="rp-packet" r={4} fill="var(--color-accent)" style={{ opacity: 0 }} />
+      <circle id="rp-packet" r={5.5} fill="var(--color-accent)" style={{ opacity: 0 }} />
       <text
         id="rp-dwell"
-        fontSize={9.5}
+        fontSize={12}
         fontFamily="var(--font-mono, monospace)"
         fill="var(--color-accent)"
         style={{ opacity: 0 }}
@@ -466,7 +468,7 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
         id="rp-q-label"
         x={24}
         y={36}
-        fontSize={8.5}
+        fontSize={11}
         fontFamily="var(--font-mono, monospace)"
         fill="var(--color-text-faint)"
         style={{ opacity: 0 }}
@@ -474,8 +476,8 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
       <text
         id="rp-q1"
         x={24}
-        y={58}
-        fontSize={15.5}
+        y={64}
+        fontSize={19}
         fontStyle="italic"
         fontFamily="var(--font-display, serif)"
         fill="var(--color-text)"
@@ -484,8 +486,8 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
       <text
         id="rp-q2"
         x={24}
-        y={77}
-        fontSize={15.5}
+        y={88}
+        fontSize={19}
         fontStyle="italic"
         fontFamily="var(--font-display, serif)"
         fill="var(--color-text)"
@@ -499,8 +501,8 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
           className="rp-trace"
           data-i={i}
           x={24}
-          y={104 + i * 15}
-          fontSize={9}
+          y={112 + i * 17}
+          fontSize={11.5}
           fontFamily="var(--font-mono, monospace)"
           fill="var(--color-accent-dim)"
           style={{ opacity: 0 }}
@@ -513,9 +515,9 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
       <text
         id="rp-clock"
         x={W - 24}
-        y={36}
+        y={38}
         textAnchor="end"
-        fontSize={11.5}
+        fontSize={14}
         fontFamily="var(--font-mono, monospace)"
         fill="var(--color-text-muted)"
         className="tabular"
@@ -524,9 +526,9 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
       <text
         id="rp-nightlabel"
         x={W - 24}
-        y={54}
+        y={60}
         textAnchor="end"
-        fontSize={8.5}
+        fontSize={11}
         fontFamily="var(--font-mono, monospace)"
         fill="var(--color-text-faint)"
         style={{ opacity: 0 }}
@@ -536,14 +538,14 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
 
       {/* Ledger, bottom left: the same three numbers, before and after. */}
       <g fontFamily="var(--font-mono, monospace)">
-        <text id="rp-led-hb" x={128} y={524} fontSize={7.5} fill="var(--color-text-faint)">
+        <text id="rp-led-hb" x={150} y={516} fontSize={10} fill="var(--color-text-faint)">
           before
         </text>
         <text
           id="rp-led-ha"
-          x={218}
-          y={524}
-          fontSize={7.5}
+          x={272}
+          y={516}
+          fontSize={10}
           fill="var(--color-text-faint)"
           style={{ opacity: 0 }}
         >
@@ -551,62 +553,62 @@ function Canvas({ ref }: { ref: React.Ref<SVGSVGElement> }) {
         </text>
         {(
           [
-            ['handoffs', 543],
-            ['elapsed', 560],
-            ['work (human)', 577],
+            ['handoffs', 540],
+            ['elapsed', 562],
+            ['work (human)', 584],
           ] as const
         ).map(([label, y]) => (
-          <text key={label} x={24} y={y} fontSize={9.5} fill="var(--color-text-muted)">
+          <text key={label} x={24} y={y} fontSize={12} fill="var(--color-text-muted)">
             {label}
           </text>
         ))}
         <text
           id="rp-led-b-hand"
-          x={128}
-          y={543}
-          fontSize={10}
+          x={150}
+          y={540}
+          fontSize={12.5}
           fill="var(--color-text)"
           className="tabular"
         />
         <text
           id="rp-led-b-el"
-          x={128}
-          y={560}
-          fontSize={10}
+          x={150}
+          y={562}
+          fontSize={12.5}
           fill="var(--color-text)"
           className="tabular"
         />
         <text
           id="rp-led-b-work"
-          x={128}
-          y={577}
-          fontSize={10}
+          x={150}
+          y={584}
+          fontSize={12.5}
           fill="var(--color-text)"
           className="tabular"
         />
         <text
           id="rp-led-a-hand"
-          x={218}
-          y={543}
-          fontSize={10}
+          x={272}
+          y={540}
+          fontSize={12.5}
           fill="var(--color-accent)"
           className="tabular"
           style={{ opacity: 0 }}
         />
         <text
           id="rp-led-a-el"
-          x={218}
-          y={560}
-          fontSize={10}
+          x={272}
+          y={562}
+          fontSize={12.5}
           fill="var(--color-accent)"
           className="tabular"
           style={{ opacity: 0 }}
         />
         <text
           id="rp-led-a-work"
-          x={218}
-          y={577}
-          fontSize={10}
+          x={272}
+          y={584}
+          fontSize={12.5}
           fill="var(--color-accent)"
           className="tabular"
           style={{ opacity: 0 }}
